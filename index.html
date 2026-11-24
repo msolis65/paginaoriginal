@@ -1904,24 +1904,21 @@
           <p>Colaboramos con aliados comerciales para ofrecer una experiencia coordinada y profesional.</p>
         </div>
 
-        <div class="alliance-grid">
+                <div class="alliance-grid">
           <article class="alliance-card">
             <div class="alliance-logo" aria-hidden="true">ACD</div>
             <h3>ACD Desarrollos</h3>
             <p>Desarrollo y comercialización de proyectos inmobiliarios.</p>
-            <a class="text-link" href="acd-desarrollos.html" style="margin-top:12px">Conocer ACD →</a>
           </article>
           <article class="alliance-card">
             <img class="alliance-image" src="ciento-diez-portada.png" alt="Portada de Ciento Diez" loading="lazy" decoding="async">
             <h3>Ciento Diez</h3>
             <p>Aliado comercial para nuevas oportunidades de inversión.</p>
-            <a class="text-link" href="ciento-diez.html" style="margin-top:12px">Conocer Ciento Diez →</a>
           </article>
           <article class="alliance-card">
             <img class="alliance-image" src="indomo-portada.png" alt="Portada de Indomo Desarrollos" loading="lazy" decoding="async">
             <h3>Indomo Desarrollos</h3>
             <p>Aliado en el desarrollo de proyectos inmobiliarios en el sureste mexicano.</p>
-            <a class="text-link" href="indomo.html" style="margin-top:12px">Conocer Indomo →</a>
           </article>
         </div>
       </div>
@@ -1945,7 +1942,7 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contact-form" data-whatsapp-number="5219991797273">
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/xrpqoden" method="POST" data-whatsapp-number="5219991797273">
           <div class="form-row">
             <div class="field">
               <label for="name">Nombre</label>
@@ -2028,8 +2025,8 @@
             <textarea id="message" name="message" placeholder="¿En qué podemos ayudarte?" required></textarea>
           </div>
 
-          <button class="button" id="contact-submit" type="submit">Enviar por WhatsApp</button>
-          <p class="form-note">Al enviar, se abrirá WhatsApp con tu mensaje listo para compartir.</p>
+          <button class="button" id="contact-submit" type="submit">Enviar solicitud</button>
+          <p class="form-note">Al enviar, tu información será procesada y se abrirá WhatsApp para contacto directo.</p>
         </form>
       </div>
     </section>
@@ -2131,12 +2128,12 @@
     }
 
     contactForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      
+      // No prevenimos el default para que Formspree procese el formulario
+        
       if (!isMobile) {
         const phoneVal = phoneInput.value.replace(/\s+/g, '');
-        // Valida que tenga exactamente 10 a 13 dígitos
         if (!/^\+?[0-9]{10,13}$/.test(phoneVal)) {
+          e.preventDefault();
           alert("Por favor ingresa un número de WhatsApp válido (de 10 a 13 dígitos).");
           return;
         }
@@ -2151,18 +2148,13 @@
         message: document.querySelector("#message").value
       };
 
-      // Guardar en BD
+      // Guardar en BD local
       try {
-        const response = await fetch('api/guardar_prospecto.php', {
+        await fetch('api/guardar_prospecto.php', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify(formData)
         });
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          console.error("Error del servidor:", errorData.message);
-        }
       } catch (err) {
         console.error("No se pudo conectar a la base de datos:", err);
       }
@@ -2174,7 +2166,10 @@ Tiempo de compra: ${formData.time}
 Cuentas con enganche: ${formData.payment}
 Mensaje: ${formData.message}`;
 
-      window.open(`https://wa.me/5219991797273?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+      // Abrir WhatsApp en una nueva pestaña después de una breve pausa
+      setTimeout(() => {
+        window.open(`https://wa.me/5219991797273?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+      }, 500);
     });
 
     // Año actualizado automáticamente en el pie de página.
