@@ -20,7 +20,36 @@
   <meta name="twitter:title" content="Tierra Yucatán | Terrenos, desarrollos y rentas en Yucatán">
   <meta name="twitter:description" content="Encuentra terrenos residenciales y de inversión, desarrollos en ciudad y playa, departamentos y propiedades en renta en Mérida y destinos de Yucatán. Asesoría de Tierra Yucatán.">
   <meta name="twitter:image" content="https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","@id":"https://www.tierrayuc.mx/#organization","name":"Tierra Yucatán","url":"https://www.tierrayuc.mx/","logo":"https://www.tierrayuc.mx/logos/tierrayuc.jpg","image":"https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg","telephone":"+529991797273","areaServed":[{"@type":"AdministrativeArea","name":"Yucatán"},{"@type":"Place","name":"Mérida"},{"@type":"Place","name":"Celestún"},{"@type":"Place","name":"Telchac"},{"@type":"Place","name":"Dzidzantún"},{"@type":"Place","name":"Hunucmá"},{"@type":"Place","name":"Uaymitún"},{"@type":"Place","name":"San Bruno"},{"@type":"Place","name":"Sisal"},{"@type":"Place","name":"Santa Clara"},{"@type":"Place","name":"Temozón Norte"}]}</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "Tierra Yucatán",
+  "url": "https://www.tierrayuc.mx/",
+  "logo": "https://www.tierrayuc.mx/logos/tierrayuc.jpg",
+  "telephone": "+529991797273",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Calle 47 por 50 y 52, #330A, Col. Benito Juárez Norte",
+    "addressLocality": "Mérida",
+    "addressRegion": "Yucatán",
+    "postalCode": "97119",
+    "addressCountry": "MX"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "21.0185",
+    "longitude": "-89.6200"
+  },
+  "areaServed": ["Mérida", "Yucatán", "Uaymitún", "Dzidzantún", "Umán"]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-5X5J8KM2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
   <style>
     /* ── Base y variables ─────────────────────────────────────────── */
     :root {
@@ -1444,9 +1473,11 @@
   <!-- Navegación fija. Las opciones principales se mantienen tal como se solicitaron. -->
   <header class="navbar">
     <nav class="nav-inner" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="Tierra Yucatán, ir al inicio">
-        <img class="brand-logo" src="logos/tierrayuc.jpg" alt="Tierra Yucatán">
-        
+            <a class="brand" href="#inicio" aria-label="Tierra Yucatán, ir al inicio">
+        <div style="display: flex; flex-direction: column; align-items: center;">
+          <img class="brand-logo" src="logos/tierrayuc.jpg" alt="Tierra Yucatán">
+          <span style="font-size: 0.7rem; font-weight: 700; color: #e0c58f; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; text-align: center;">Tierra Yuc.<br>Desarrollos</span>
+        </div>
       </a>
 
       <button
@@ -1942,7 +1973,7 @@
           </div>
         </div>
 
-                <form class="contact-form" id="contact-form" action="https://formspree.io/f/xrpqoden" method="POST" data-whatsapp-number="5219991797273">
+                                <form class="contact-form" id="contact-form" data-whatsapp-number="5219991797273">
           <div class="form-row">
             <div class="field">
               <label for="name">Nombre</label>
@@ -1952,28 +1983,28 @@
               <label for="phone">Teléfono / WhatsApp</label>
               <input id="phone" name="phone" type="tel" placeholder="+52 999 123 4567" autocomplete="tel" aria-describedby="phone-auth-status" required>
               <div class="phone-auth">
-                <label class="phone-auth-consent" id="phone-consent-wrap" hidden>
-                  <input id="phone-consent" type="checkbox">
-                  <span>Acepto guardar mi teléfono verificado para identificar mis solicitudes y mantener mi acceso.</span>
-                </label>
-                <button class="button button--outline" id="phone-send-code" type="button" hidden>Enviar código por WhatsApp</button>
-                <div id="phone-code-step" hidden>
-                  <div class="phone-code-row">
-                    <div class="field">
-                      <label for="phone-code">Código de seis dígitos</label>
-                      <input id="phone-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="123456">
-                    </div>
-                    <div class="phone-auth-actions">
-                      <button class="button" id="phone-verify-code" type="button">Verificar</button>
-                      <button class="button button--outline" id="phone-use-another" type="button" hidden>Usar otro número</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="phone-auth-actions">
-                  <button class="button button--outline" id="phone-change-number" type="button" hidden>Cerrar sesión y cambiar número</button>
-                  <button class="button button--outline" id="phone-delete-account" type="button" hidden>Eliminar cuenta y teléfono guardado</button>
-                </div>
-                <p class="form-note phone-auth-status" id="phone-auth-status" role="status" aria-live="polite"></p>
+                        <label class="phone-auth-consent" id="phone-consent-wrap" hidden>
+                          <input id="phone-consent" type="checkbox">
+                          <span>Acepto guardar mi teléfono verificado para identificar mis solicitudes y mantener mi acceso.</span>
+                        </label>
+                        <button class="button button--outline" id="phone-send-code" type="button" hidden>Enviar código por WhatsApp</button>
+                        <div id="phone-code-step" hidden>
+                          <div class="phone-code-row">
+                            <div class="field">
+                              <label for="phone-code">Código de seis dígitos</label>
+                              <input id="phone-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="123456">
+                            </div>
+                            <div class="phone-auth-actions">
+                              <button class="button" id="phone-verify-code" type="button">Verificar</button>
+                              <button class="button button--outline" id="phone-use-another" type="button" hidden>Usar otro número</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="phone-auth-actions">
+                          <button class="button button--outline" id="phone-change-number" type="button" hidden>Cerrar sesión y cambiar número</button>
+                          <button class="button button--outline" id="phone-delete-account" type="button" hidden>Eliminar cuenta y teléfono guardado</button>
+                        </div>
+                        <p class="form-note phone-auth-status" id="phone-auth-status" role="status" aria-live="polite"></p>
               </div>
             </div>
           </div>
@@ -2002,20 +2033,20 @@
             <div class="field">
               <label for="time">Tiempo de compra</label>
               <select id="time" name="time" required>
-                <option value="" selected disabled>Selecciona...</option>
-                <option value="Inmediata">Inmediata</option>
-                <option value="Dos semanas">Dos semanas</option>
-                <option value="Solo información">Solo información</option>
-                <option value="Más adelante">Más adelante</option>
+                        <option value="" selected disabled>Selecciona...</option>
+                        <option value="Inmediata">Inmediata</option>
+                        <option value="Dos semanas">Dos semanas</option>
+                        <option value="Solo información">Solo información</option>
+                        <option value="Más adelante">Más adelante</option>
               </select>
             </div>
             <div class="field">
               <label for="payment">Cuentas con el enganche</label>
               <select id="payment" name="payment" required>
-                <option value="" selected disabled>Selecciona...</option>
-                <option value="Completo">Completo</option>
-                <option value="Diferir enganche en pagos">Diferir enganche en pagos</option>
-                <option value="Mayor que el enganche">Mayor que el enganche</option>
+                        <option value="" selected disabled>Selecciona...</option>
+                        <option value="Completo">Completo</option>
+                        <option value="Diferir enganche en pagos">Diferir enganche en pagos</option>
+                        <option value="Mayor que el enganche">Mayor que el enganche</option>
               </select>
             </div>
           </div>
@@ -2026,7 +2057,7 @@
           </div>
 
           <button class="button" id="contact-submit" type="submit">Enviar solicitud</button>
-          <p class="form-note">Al enviar, tu información será procesada y se abrirá WhatsApp para contacto directo.</p>
+          <p class="form-note">Al enviar, tu información será enviada por correo y se abrirá WhatsApp para contacto directo.</p>
         </form>
       </div>
     </section>
@@ -2034,7 +2065,7 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <span><strong>Solís Inmobiliaria</strong> · Desarrollos y terrenos de inversión</span>
+      <span><strong>Tierra Yuc. Desarrollos Real Estate</strong> · Desarrollos y terrenos de inversión</span>
       <span>© <span id="year"></span> Todos los derechos reservados.</span>
     </div>
   </footer>
@@ -2127,13 +2158,12 @@
       phoneInput.readOnly = true;
     }
 
-    contactForm.addEventListener("submit", async (e) => {
-      // No prevenimos el default para que Formspree procese el formulario
+        contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
         
       if (!isMobile) {
         const phoneVal = phoneInput.value.replace(/\s+/g, '');
         if (!/^\+?[0-9]{10,13}$/.test(phoneVal)) {
-          e.preventDefault();
           alert("Por favor ingresa un número de WhatsApp válido (de 10 a 13 dígitos).");
           return;
         }
@@ -2148,7 +2178,7 @@
         message: document.querySelector("#message").value
       };
 
-      // Guardar en BD local
+      // 1. Guardar en BD local
       try {
         await fetch('api/guardar_prospecto.php', {
           method: 'POST',
@@ -2159,6 +2189,18 @@
         console.error("No se pudo conectar a la base de datos:", err);
       }
 
+      // 2. Enviar a Formspree
+      try {
+        await fetch('https://formspree.io/f/xrpqoden', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(formData)
+        });
+      } catch (err) {
+        console.error("Error al enviar a Formspree:", err);
+      }
+
+      // 3. Abrir WhatsApp
       const whatsappMsg = `Hola, mi nombre es ${formData.name}.
 Teléfono: ${formData.phone}
 Desarrollo de interés: ${formData.development}
@@ -2166,10 +2208,10 @@ Tiempo de compra: ${formData.time}
 Cuentas con enganche: ${formData.payment}
 Mensaje: ${formData.message}`;
 
-      // Abrir WhatsApp en una nueva pestaña después de una breve pausa
-      setTimeout(() => {
-        window.open(`https://wa.me/5219991797273?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
-      }, 500);
+      window.open(`https://wa.me/5219991797273?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+      
+      alert("¡Solicitud enviada correctamente!");
+      contactForm.reset();
     });
 
     // Año actualizado automáticamente en el pie de página.
