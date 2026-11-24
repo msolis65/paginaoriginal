@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102a2a">
+  <meta name="description" content="Encuentra terrenos residenciales y de inversión, desarrollos en ciudad y playa, departamentos y propiedades en renta en Mérida y destinos de Yucatán. Asesoría de Tierra Yucatán.">
+  <title>Tierra Yucatán | Terrenos, desarrollos y rentas en Yucatán</title>
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://www.tierrayuc.mx/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Tierra Yucatán">
+  <meta property="og:title" content="Tierra Yucatán | Terrenos, desarrollos y rentas en Yucatán">
+  <meta property="og:description" content="Encuentra terrenos residenciales y de inversión, desarrollos en ciudad y playa, departamentos y propiedades en renta en Mérida y destinos de Yucatán. Asesoría de Tierra Yucatán.">
+  <meta property="og:url" content="https://www.tierrayuc.mx/">
+  <meta property="og:image" content="https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg">
+  <meta property="og:image:alt" content="Desarrollos inmobiliarios y propiedades en Yucatán">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tierra Yucatán | Terrenos, desarrollos y rentas en Yucatán">
+  <meta name="twitter:description" content="Encuentra terrenos residenciales y de inversión, desarrollos en ciudad y playa, departamentos y propiedades en renta en Mérida y destinos de Yucatán. Asesoría de Tierra Yucatán.">
+  <meta name="twitter:image" content="https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","@id":"https://www.tierrayuc.mx/#organization","name":"Tierra Yucatán","url":"https://www.tierrayuc.mx/","logo":"https://www.tierrayuc.mx/logos/tierrayuc.jpg","image":"https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg","telephone":"+529991797273","areaServed":[{"@type":"AdministrativeArea","name":"Yucatán"},{"@type":"Place","name":"Mérida"},{"@type":"Place","name":"Celestún"},{"@type":"Place","name":"Telchac"},{"@type":"Place","name":"Dzidzantún"},{"@type":"Place","name":"Hunucmá"},{"@type":"Place","name":"Uaymitún"},{"@type":"Place","name":"San Bruno"},{"@type":"Place","name":"Sisal"},{"@type":"Place","name":"Santa Clara"},{"@type":"Place","name":"Temozón Norte"}]}</script>
+  <style>
+    /* ── Base y variables ─────────────────────────────────────────── */
+    :root {
+      --ink: #172625;
+      --green: #173c38;
+      --green-light: #24554c;
+      --gold: #c3a36a;
+      --cream: #f7f6f2;
+      --white: #fff;
+      --gray: #687472;
+      --line: #e4e8e4;
+      --shadow: 0 16px 48px rgba(23, 38, 37, .09);
+      --radius: 18px;
+      --content: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(var(--content), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section--soft {
+      background: var(--cream);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green-light);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 26px;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .section-heading {
+      max-width: 660px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin-top: 12px;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.12;
+    }
+
+    .section-heading p {
+      max-width: 570px;
+      margin-top: 14px;
+      color: var(--gray);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 21px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--white);
+      cursor: pointer;
+      font-size: .9rem;
+      font-weight: 700;
+      transition: background .2s ease, transform .2s ease, border-color .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--green-light);
+    }
+
+    .button--outline {
+      border-color: rgba(255,255,255,.55);
+      background: transparent;
+      color: var(--white);
+    }
+
+    .button--outline:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,.12);
+    }
+
+    .button--light {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--green);
+    }
+
+    /* ── Navegación ───────────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      z-index: 1000;
+      inset: 0 0 auto;
+      height: 76px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(16, 42, 42, .96);
+      color: var(--white);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      display: flex;
+      width: min(1320px, calc(100% - 40px));
+      height: 100%;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      letter-spacing: .02em;
+    }
+
+    .brand-name small {
+      display: block;
+      color: rgba(255,255,255,.65);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-size: .57rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      gap: clamp(12px, 2vw, 28px);
+      list-style: none;
+    }
+
+    .nav-links > li {
+      position: relative;
+    }
+
+    .nav-link,
+    .products-toggle {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 6px;
+      border: 0;
+      background: transparent;
+      color: rgba(255,255,255,.9);
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover,
+    .products-toggle:hover {
+      color: var(--gold);
+    }
+
+    .chevron {
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% - 4px);
+      left: -14px;
+      display: none;
+      min-width: 190px;
+      padding: 9px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      background: #173432;
+      box-shadow: var(--shadow);
+      list-style: none;
+    }
+
+    .dropdown a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: rgba(255,255,255,.86);
+      font-size: .85rem;
+    }
+
+    .dropdown a:hover {
+      background: rgba(255,255,255,.08);
+      color: var(--gold);
+    }
+
+    .has-dropdown:hover .dropdown,
+    .has-dropdown:focus-within .dropdown,
+    .has-dropdown.is-open .dropdown {
+      display: block;
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border: 1px solid rgba(195,163,106,.75);
+      border-radius: 999px;
+      color: var(--white);
+      font-size: .78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background .2s ease;
+    }
+
+    .nav-cta:hover {
+      background: rgba(195,163,106,.15);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+
+    /* ── Portada ──────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 700px;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(13, 36, 35, .9) 0%, rgba(13, 36, 35, .65) 48%, rgba(13, 36, 35, .2) 100%),
+        linear-gradient(135deg, #315850, #172f2d 58%, #b29a6e);
+      color: var(--white);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      background: url("img/hero-desarrollo.jpg.jpg") center 48% / cover no-repeat;
+      content: "";
+      opacity: .43;
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+      background: linear-gradient(transparent, rgba(12, 31, 30, .32));
+      content: "";
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(760px, 100%);
+      padding: 140px 0 100px;
+    }
+
+    .hero .eyebrow {
+      color: #e5d5b3;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-top: 20px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      font-weight: 400;
+      letter-spacing: -.05em;
+      line-height: .99;
+    }
+
+    .hero h1 em {
+      color: #e0c58f;
+      font-style: normal;
+    }
+
+    .hero-copy {
+      max-width: 540px;
+      margin-top: 22px;
+      color: rgba(255,255,255,.82);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 56px;
+      color: rgba(255,255,255,.76);
+      font-size: .8rem;
+      letter-spacing: .04em;
+    }
+
+    .hero-note::before {
+      width: 42px;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    /* ── Promociones ──────────────────────────────────────────────── */
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .property-types-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .property-type-card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 12px 34px rgba(23,38,37,.05);
+    }
+
+    .property-type-card h3 {
+      margin-top: 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+
+    .property-type-card p {
+      max-width: 480px;
+      margin-top: 12px;
+      color: var(--gray);
+    }
+
+    .property-type-card .button {
+      align-self: flex-start;
+      margin-top: 24px;
+    }
+
+    .property-type-card--with-image {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .property-type-image {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .property-type-card--with-image > div {
+      padding: 28px 34px 0;
+    }
+
+    .property-type-card--with-image .sale-property {
+      padding: 0 34px 34px;
+    }
+
+    .sale-properties-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    .sale-property-card {
+      overflow: hidden;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: var(--white);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .sale-property-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .sale-property-card-image {
+      height: 210px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .sale-property-card-body {
+      padding: 20px;
+    }
+
+    .sale-property-card-body h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .sale-property-card-location {
+      margin-top: 8px;
+      color: var(--gray);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .sale-property-card-price {
+      margin-top: 12px;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+    }
+
+    .sale-property-card-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin:14px 0;
+    }
+
+    .sale-property-card-meta span {
+      padding:5px 8px;
+      border-radius:7px;
+      background:#edf2ee;
+      color:#50615d;
+      font-size:.68rem;
+      font-weight:800;
+    }
+
+    .promo-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 8px 26px rgba(23,38,37,.04);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .promo-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .promo-image {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      background: #f1f3ef;
+    }
+
+    .promo-image img,
+    .property-image img,
+    .agent-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .promo-image img {
+      object-fit: contain;
+    }
+
+    .promo-body {
+      padding: 22px;
+    }
+
+    .promo-body h3,
+    .property-body h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .promo-body p {
+      margin-top: 9px;
+      color: var(--gray);
+      font-size: .9rem;
+    }
+
+    .promo-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .validity {
+      color: var(--gray);
+      font-size: .75rem;
+    }
+
+    .text-link {
+      color: var(--green);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+
+    .text-link:hover {
+      color: #9c7e49;
+    }
+
+    /* ── Categorías y desarrollos ─────────────────────────────────── */
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: -8px 0 28px;
+    }
+
+    .filter-button {
+      padding: 9px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--gray);
+      cursor: pointer;
+      font-size: .8rem;
+      font-weight: 700;
+      transition: all .2s ease;
+    }
+
+    .filter-button:hover,
+    .filter-button.active {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .property-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .property-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .property-image {
+      position: relative;
+      display: grid;
+      min-height: 230px;
+      place-items: center;
+      overflow: hidden;
+      background: linear-gradient(145deg, #607b68, #c0ad85);
+      color: rgba(255,255,255,.9);
+    }
+
+    .property-image span {
+      position: relative;
+      z-index: 1;
+      padding: 9px 14px;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 999px;
+      background: rgba(15,35,32,.24);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .property-image .property-name {
+      position: relative;
+      z-index: 2;
+      padding: 9px 14px;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 999px;
+      background: rgba(15,35,32,.42);
+      color: var(--white);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      transition: background .2s ease, transform .2s ease;
+    }
+
+    .property-image .property-name:hover {
+      transform: translateY(-2px);
+      background: var(--green);
+    }
+
+    .property-tag {
+      position: absolute;
+      z-index: 2;
+      top: 14px;
+      left: 14px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.93);
+      color: var(--green);
+      font-size: .68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .property-body {
+      padding: 21px;
+    }
+
+    .property-category {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      margin: 8px 0 2px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #edf2ee;
+      color: var(--green);
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      color: var(--gray);
+      font-size: .82rem;
+    }
+
+    .property-body > p {
+      min-height: 48px;
+      margin-top: 12px;
+      color: var(--gray);
+      font-size: .88rem;
+    }
+
+    .property-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 19px;
+    }
+
+    .property-meta span {
+      padding: 6px 9px;
+      border-radius: 7px;
+      background: #f1f4f1;
+      color: #50615d;
+      font-size: .7rem;
+      font-weight: 700;
+    }
+
+    .product-grid .property-card[hidden] {
+      display: none;
+    }
+
+    /* ── Agente ───────────────────────────────────────────────────── */
+    .agent-panel {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 64px;
+      padding: 44px;
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .agent-photo {
+      position: relative;
+      width: 100%;
+      min-height: 390px;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #eceff1;
+    }
+
+    .agent-photo img {
+      object-position: center 22%;
+    }
+
+    .agent-photo span {
+      position: absolute;
+      inset: auto 0 20px;
+      color: rgba(255,255,255,.95);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .agent-info h2 {
+      margin-top: 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+
+    .agent-role {
+      margin-top: 12px;
+      color: #9a7c49;
+      font-size: .9rem;
+      font-weight: 800;
+    }
+
+    .agent-info > p {
+      margin-top: 20px;
+      color: var(--gray);
+    }
+
+    .agent-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .agent-highlight {
+      min-height: 96px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #f8f9f6;
+    }
+
+    .agent-highlight strong {
+      display: block;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      font-weight: 500;
+    }
+
+    .agent-highlight span {
+      display: block;
+      margin-top: 5px;
+      color: var(--gray);
+      font-size: .78rem;
+      line-height: 1.45;
+    }
+
+    .agent-contact {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .agent-contact a {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .commercial-team {
+      margin-top: 54px;
+    }
+
+    .commercial-team-heading {
+      margin-bottom: 24px;
+    }
+
+    .commercial-team-heading h2 {
+      margin-top: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+
+    .commercial-team-heading p {
+      max-width: 620px;
+      margin-top: 10px;
+      color: var(--gray);
+    }
+
+    .commercial-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .commercial-team-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: 0 10px 32px rgba(23,38,37,.06);
+    }
+
+    .commercial-team-photo {
+      height: 300px;
+      overflow: hidden;
+      background: #edf1ee;
+    }
+
+    .commercial-team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 32%;
+      transition: transform .35s ease;
+    }
+
+    .commercial-team-card:hover .commercial-team-photo img {
+      transform: scale(1.025);
+    }
+
+    .commercial-team-card h3 {
+      margin: 0;
+      padding: 18px 20px 20px;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.28rem;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .contact-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: #edf2ee;
+      color: var(--green);
+      font-size: .85rem;
+    }
+
+    /* ── Alianzas ─────────────────────────────────────────────────── */
+    .alliance-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .alliance-card {
+      display: flex;
+      min-height: 205px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      text-align: center;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+
+    .alliance-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .alliance-logo {
+      display: grid;
+      width: 72px;
+      height: 72px;
+      place-items: center;
+      margin-bottom: 14px;
+      border: 1px solid #e6dfd0;
+      border-radius: 50%;
+      background: #faf8f3;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .alliance-image {
+      width: min(100%, 220px);
+      height: 86px;
+      margin-bottom: 14px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .alliance-card h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .alliance-card p {
+      max-width: 260px;
+      margin-top: 7px;
+      color: var(--gray);
+      font-size: .82rem;
+    }
+
+    .alliance-card .text-link {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .alliance-card .text-link:hover {
+      border-color: var(--green-light);
+      background: var(--green-light);
+      color: var(--white);
+    }
+
+    .alliance-card .text-link:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* ── Contacto ─────────────────────────────────────────────────── */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 56px;
+    }
+
+    .contact-copy h2 {
+      margin-top: 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+
+    .contact-copy > p {
+      margin-top: 17px;
+      color: var(--gray);
+    }
+
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .social-links a {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--green);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .social-links a:hover {
+      border-color: var(--green);
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      color: var(--ink);
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 13px;
+      border: 1px solid #dfe5df;
+      border-radius: 99px;
+      outline: none;
+      background: #fcfcfa;
+      color: var(--ink);
+      font-size: .88rem;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .field textarea {
+      min-height: 116px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--green-light);
+      box-shadow: 0 0 0 3px rgba(36,85,76,.1);
+    }
+
+    .form-note {
+      color: var(--gray);
+      font-size: .75rem;
+    }
+
+    .phone-auth {
+      display: grid;
+      gap: 10px;
+      margin-top: 7px;
+    }
+
+    .phone-auth [hidden] {
+      display: none !important;
+    }
+
+    .phone-auth-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      color: var(--gray);
+      font-size: .76rem;
+      line-height: 1.45;
+    }
+
+    .phone-auth-consent input {
+      width: 16px;
+      min-height: 16px;
+      flex: 0 0 auto;
+      margin-top: 2px;
+    }
+
+    .phone-code-row,
+    .phone-auth-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .phone-code-row .field {
+      flex: 1 1 150px;
+    }
+
+    .phone-auth-status[data-state="error"] {
+      color: #a42b24;
+    }
+
+    .phone-auth-status[data-state="success"] {
+      color: var(--green);
+    }
+
+    .contact-form button:disabled {
+      cursor: not-allowed;
+      opacity: .6;
+    }
+
+    .field input[readonly] {
+      background: #f1f3f0;
+      color: var(--gray);
+    }
+
+    /* ── Pie y botón flotante ─────────────────────────────────────── */
+    .footer {
+      padding: 26px 0;
+      background: #102a2a;
+      color: rgba(255,255,255,.7);
+      font-size: .8rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer strong {
+      color: var(--white);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      z-index: 900;
+      right: 24px;
+      bottom: 24px;
+      display: grid;
+      width: 58px;
+      height: 58px;
+      place-items: center;
+      border: 3px solid rgba(255,255,255,.9);
+      border-radius: 50%;
+      background: #188b5a;
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
+      color: var(--white);
+      font-size: 1.5rem;
+      transition: transform .2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.04);
+    }
+
+    /* ── Adaptación para pantallas pequeñas ───────────────────────── */
+    @media (max-width: 980px) {
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-link,
+      .products-toggle {
+        font-size: .75rem;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .agent-panel {
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 72px;
+      }
+
+      .container {
+        width: min(100% - 36px, var(--content));
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .navbar {
+        height: 68px;
+      }
+
+      .nav-inner {
+        width: calc(100% - 32px);
+      }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        right: 0;
+        left: 0;
+        display: none;
+        height: auto;
+        align-items: stretch;
+        gap: 0;
+        padding: 10px 20px 20px;
+        border-top: 1px solid rgba(255,255,255,.1);
+        background: #102a2a;
+      }
+
+      .nav-links.is-open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-links > li {
+        width: 100%;
+      }
+
+      .nav-link,
+      .products-toggle {
+        width: 100%;
+        min-height: 45px;
+        justify-content: space-between;
+        font-size: .9rem;
+      }
+
+      .dropdown {
+        position: static;
+        display: none;
+        margin: 0 0 8px 10px;
+        padding: 4px 8px;
+        border: 0;
+        border-left: 1px solid rgba(195,163,106,.5);
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .has-dropdown:hover .dropdown,
+      .has-dropdown:focus-within .dropdown,
+      .has-dropdown.is-open .dropdown {
+        display: block;
+      }
+
+      .hero {
+        min-height: 660px;
+      }
+
+      .hero-content {
+        padding-top: 120px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 13vw, 5rem);
+      }
+
+      .promo-grid,
+      .property-types-grid,
+      .sale-properties-grid,
+      .alliance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promo-image {
+        min-height: 235px;
+      }
+
+      .agent-panel {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 22px;
+      }
+      .agent-highlights {
+        grid-template-columns: 1fr;
+      }
+      .commercial-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .commercial-team-photo {
+        height: 280px;
+      }
+
+      .agent-photo {
+        min-height: 340px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+      .commercial-team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 21px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .hero-note {
+        margin-top: 38px;
+      }
+
+      .whatsapp-float {
+        right: 16px;
+        bottom: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+    .brand-logo { display:block; width:48px; height:64px; flex-shrink:0; object-fit:contain; }
+    .visitor-counter { margin-top:14px; color:rgba(255,255,255,.82); font-size:.82rem; }
+    .visitor-counter strong { color:#e0c58f; font-variant-numeric:tabular-nums; }
+    .request-counter { display:flex; align-items:center; justify-content:space-between; gap:10px; margin:14px 0 0; padding-top:11px; border-top:1px solid var(--line); color:var(--gray); font-size:.75rem; }
+    .request-counter strong { flex-shrink:0; color:var(--green); font-size:.9rem; font-variant-numeric:tabular-nums; }
+  </style>
+</head>
+
+<body>
+  <!-- Navegación fija. Las opciones principales se mantienen tal como se solicitaron. -->
+  <header class="navbar">
+    <nav class="nav-inner" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Tierra Yucatán, ir al inicio">
+        <img class="brand-logo" src="logos/tierrayuc.jpg" alt="Tierra Yucatán">
+        
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li><a class="nav-link" href="#promociones">Promociones</a></li>
+
+        <li class="has-dropdown">
+          <button class="products-toggle" type="button" aria-expanded="false">
+            Desarrollos <span class="chevron" aria-hidden="true"></span>
+          </button>
+          <ul class="dropdown">
+            <li><a href="solha.html">Solhá</a></li>
+            <li><a href="nexum82.html">Nexum82</a></li>
+            <li><a href="lakuun.html">Lakuun</a></li>
+            <li><a href="martell.html">Martell</a></li>
+            <li><a href="marela-life.html">Marela Life</a></li>
+            <li><a href="hacienda-ticopo-gutierrez.html">Hacienda Ticopo</a></li>
+            <li><a href="suno.html">SUNO</a></li>
+            <li><a href="monarca.html">Monarca</a></li>
+            <li><a href="anthia.html">Anthia</a></li>
+            <li><a href="marela-celestun.html">Marela Celestún</a></li>
+            <li><a href="velamar.html">Velamar</a></li>
+          </ul>
+        </li>
+
+        <li class="has-dropdown">
+          <button class="products-toggle" type="button" aria-expanded="false">
+            Venta <span class="chevron" aria-hidden="true"></span>
+          </button>
+          <ul class="dropdown">
+            <li><a href="lote-telchac.html">Terreno en Telchac</a></li>
+            <li><a href="terreno-dzoyola.html">Terreno en Dzoyolá</a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="#propiedades-alquiler">Alquiler</a></li>
+        <li><a class="nav-link" href="#categorias">Por categoría</a></li>
+        <li><a class="nav-link" href="#agentes">Agentes</a></li>
+        <li><a class="nav-link" href="#alianzas">Alianzas</a></li>
+        <li><a class="nav-link" href="#contactos">Contactos</a></li>
+      </ul>
+
+      <a class="nav-cta" href="#contactos">Solicitar informes&nbsp; ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Portada con fotografía aérea del desarrollo. -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Inversión con visión de futuro</span>
+          <h1>Tu próxima gran decisión <em>comienza aquí.</em></h1>
+          <p class="hero-copy">
+            Descubre desarrollos y terrenos de inversión pensados para construir
+            patrimonio y acercarte a nuevas oportunidades.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#productos">Explorar desarrollos <span aria-hidden="true">→</span></a>
+            <a class="button button--outline" href="#contactos">Hablar con un asesor</a>
+          </div>
+          <p class="hero-note">Asesoría cercana. Oportunidades extraordinarias.</p>
+          <p class="visitor-counter">Visitas al sitio: <strong data-site-visits>—</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Promociones del mes: actualiza textos, vigencia e imágenes en cada periodo. -->
+    <section class="section" id="promociones">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Oportunidades especiales</span>
+          <h2>Promociones del Mes</h2>
+          <p>Explora nuestras promociones y consulta con un asesor las condiciones y disponibilidad vigentes.</p>
+        </div>
+
+        <div class="promo-grid">
+          <article class="promo-card">
+            <div class="promo-image">
+              <img src="novpromo/lakuun.jpg" alt="Promoción Buen Fin de Lakuun, del 13 al 17 de noviembre" loading="lazy" decoding="async">
+            </div>
+            <div class="promo-body">
+              <h3>Lakuun</h3>
+              <p>Consulta con un asesor las condiciones y disponibilidad del desarrollo.</p>
+              <div class="promo-footer">
+                <a class="text-link whatsapp-link" href="#" data-development="lakuun" data-message="Hola, quiero información sobre Lakuun y sus promociones vigentes.">Consultar →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="promo-card">
+            <div class="promo-image">
+              <img src="novpromo/solha.jpg" alt="Promoción Buen Fin de Solhá, del 13 al 17 de noviembre" loading="lazy" decoding="async">
+            </div>
+            <div class="promo-body">
+              <h3>Solhá</h3>
+              <p>Consulta con un asesor las condiciones y disponibilidad del desarrollo.</p>
+              <div class="promo-footer">
+                <a class="text-link whatsapp-link" href="#" data-development="solha" data-message="Hola, quiero información sobre Solhá y sus promociones vigentes.">Consultar →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Propiedades disponibles: enlaces preparados para venta y alquiler. -->
+    <section class="section" id="propiedades">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Opciones inmobiliarias</span>
+          <h2>Propiedades disponibles</h2>
+          <p>Consulta opciones actuales de venta o alquiler con acompañamiento personalizado.</p>
+        </div>
+
+        <div class="property-types-grid">
+          <article class="property-type-card" id="propiedades-venta" style="grid-column:1/-1">
+            <div>
+              <span class="eyebrow">Venta</span>
+              <h3>Propiedades en venta</h3>
+              <p>Terrenos disponibles con ubicación, superficies y opciones comerciales.</p>
+            </div>
+            <div class="sale-properties-grid">
+              <article class="sale-property-card">
+                <img class="sale-property-card-image" src="venta/telchac/2c600f0c-c933-4e2e-9362-eca73dc41a97.jpg" alt="Terreno en venta en Telchac" loading="lazy" decoding="async">
+                <div class="sale-property-card-body">
+                  <h3>Terreno en Telchac</h3>
+                  <div class="sale-property-card-location">⌖ Isla Arena, Telchac, Yucatán</div>
+                  <div class="sale-property-card-price">$437,500 MXN</div>
+                  <div class="sale-property-card-meta"><span>350 m²</span><span>Uso mixto</span><span>Semiurbanizado</span></div>
+                  <p class="request-counter">Clics de WhatsApp: <strong data-request-count="lote-telchac">—</strong></p>
+                  <a class="text-link" href="lote-telchac.html">Conocer propiedad →</a>
+                </div>
+              </article>
+
+              <article class="sale-property-card">
+                <img class="sale-property-card-image" src="venta/dzoyola/9a2e254b-9558-43f5-9c17-7d60758e871a.jpg" alt="Terreno en venta en Dzoyolá" loading="lazy" decoding="async">
+                <div class="sale-property-card-body">
+                  <h3>Terreno en Dzoyolá</h3>
+                  <div class="sale-property-card-location">⌖ Frente a Hacienda Dzoyolá, Mérida</div>
+                  <div class="sale-property-card-price">$7,500,000 MXN</div>
+                  <div class="sale-property-card-meta"><span>6,000 m²</span><span>Zona urbana</span><span>Servicios</span></div>
+                  <p class="request-counter">Clics de WhatsApp: <strong data-request-count="terreno-dzoyola">—</strong></p>
+                  <a class="text-link" href="terreno-dzoyola.html">Conocer propiedad →</a>
+                </div>
+              </article>
+            </div>
+          </article>
+
+          <article class="property-type-card property-type-card--with-image" id="propiedades-alquiler">
+            <img class="property-type-image" src="img/propiedades-alquiler.png" alt="Propiedades disponibles en alquiler" loading="lazy" decoding="async">
+            <div>
+              <span class="eyebrow">Alquiler</span>
+              <h3>Propiedades en alquiler</h3>
+              <p>Explora opciones de renta residencial o comercial según tus necesidades actuales.</p>
+            </div>
+            <a class="button whatsapp-link" href="#" data-message="Hola, quiero conocer las propiedades disponibles en alquiler.">Consultar propiedades <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desarrollos y filtros por categoría. Edita ubicación y características con datos verificados. -->
+    <section class="section section--soft" id="productos">
+      <div class="container" id="categorias">
+        <div class="section-heading">
+          <span class="eyebrow">Encuentra tu próximo proyecto</span>
+          <h2>Desarrollos para cada plan</h2>
+          <p>Explora nuestra selección y filtra por el tipo de oportunidad que estás buscando.</p>
+        </div>
+
+        <div class="filter-row" role="group" aria-label="Filtrar desarrollos por categoría">
+          <button class="filter-button active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-button" type="button" data-filter="residencial" aria-pressed="false">Residencial</button>
+          <button class="filter-button" type="button" data-filter="semiurbanizado" aria-pressed="false">Semiurbanizado</button>
+          <button class="filter-button" type="button" data-filter="departamentos-fraccionales" aria-pressed="false">Departamentos fraccionales</button>
+          <button class="filter-button" type="button" data-filter="departamentos-lujo" aria-pressed="false">Departamentos de lujo</button>
+          <button class="filter-button" type="button" data-filter="industrial" aria-pressed="false">Industrial</button>
+        </div>
+
+        <div class="product-grid">
+          <article class="property-card" id="solha" data-category="semiurbanizado">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/solha.jpg" alt="Solhá, desarrollo residencial en Dzidzantún" loading="lazy" decoding="async">
+              <a class="property-name" href="solha.html" aria-label="Conocer Solhá">Solhá</a>
+            </div>
+            <div class="property-body">
+              <h3>Solhá</h3>
+              <div class="property-category">Semiurbanizado</div>
+              <div class="location">⌖ Ubicación: [agregar ciudad o zona]</div>
+              <p>Un proyecto para quienes buscan invertir en una zona con proyección.</p>
+              <div class="property-meta"><span>Terrenos</span><span>Plan de inversión</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="solha">—</strong></p>
+              <a class="text-link" href="solha.html">Conocer Solhá →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="nexum82" data-category="industrial">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/nexum82.png" alt="Nexum82, parque industrial en Umán" loading="lazy" decoding="async">
+              <a class="property-name" href="nexum82.html" aria-label="Conocer Nexum82">Nexum82</a>
+            </div>
+            <div class="property-body">
+              <h3>Nexum82</h3>
+              <div class="property-category">Industrial</div>
+              <div class="location">⌖ Ubicación: Umán, Yucatán</div>
+              <p>Parque industrial planeado en 82 hectáreas para industria, logística y servicios.</p>
+              <div class="property-meta"><span>82 hectáreas</span><span>Tren Maya a 5 min</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="nexum82">—</strong></p>
+              <a class="text-link" href="nexum82.html">Conocer Nexum82 →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="lakuun" data-category="residencial">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/lakuun.jpg" alt="Lakuun, privada residencial en Mérida" loading="lazy" decoding="async">
+              <a class="property-name" href="lakuun.html" aria-label="Conocer Lakuun">Lakuun</a>
+            </div>
+            <div class="property-body">
+              <h3>Lakuun</h3>
+              <div class="property-category">Residencial</div>
+              <div class="location">⌖ Ubicación: [agregar ciudad o zona]</div>
+              <p>Conoce el proyecto, sus características y las opciones de disponibilidad.</p>
+              <div class="property-meta"><span>Terrenos</span><span>Informes personalizados</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="lakuun">—</strong></p>
+              <a class="text-link" href="lakuun.html">Conocer Lakuun →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="martell" data-category="residencial">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/martell.jpg" alt="Martell Natural Living" loading="lazy" decoding="async">
+              <a class="property-name" href="martell.html" aria-label="Conocer Martell">Martell</a>
+            </div>
+            <div class="property-body">
+              <h3>Martell</h3>
+              <div class="property-category">Residencial</div>
+              <div class="location">⌖ Concepto: Natural Living</div>
+              <p>Una propuesta residencial con una identidad cercana a la naturaleza y la exclusividad.</p>
+              <div class="property-meta"><span>Residencial</span><span>Brochure oficial</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="martell">—</strong></p>
+              <a class="text-link" href="martell.html">Conocer Martell →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="marela-life" data-category="residencial">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/marela%20life.jpg" alt="Marela Life en Celestún" loading="lazy" decoding="async">
+              <a class="property-name" href="marela-life.html" aria-label="Conocer Marela Life">Marela Life</a>
+            </div>
+            <div class="property-body">
+              <h3>Marela Life</h3>
+              <div class="property-category">Residencial</div>
+              <div class="location">⌖ Ubicación: [agregar ciudad o zona]</div>
+              <p>Descubre sus características y pregunta por las opciones disponibles.</p>
+              <div class="property-meta"><span>Estilo de vida</span><span>Opciones disponibles</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="marela-life">—</strong></p>
+              <a class="text-link" href="marela-life.html">Conocer Marela Life →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="hacienda-ticopo" data-category="residencial">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/hacienda%20ticopo.jpg" alt="Hacienda Ticopo Gutiérrez" loading="lazy" decoding="async">
+              <a class="property-name" href="hacienda-ticopo-gutierrez.html" aria-label="Conocer Hacienda Ticopo">Hacienda Ticopo</a>
+            </div>
+            <div class="property-body">
+              <h3>Hacienda Ticopo Gutiérrez</h3>
+              <div class="property-category">Residencial</div>
+              <div class="location">⌖ Ubicación: Yucatán</div>
+              <p>Una comunidad con más de 200 años de historia y una propuesta residencial de inversión.</p>
+              <div class="property-meta"><span>Patrimonio</span><span>Presentación oficial</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="hacienda-ticopo-gutierrez">—</strong></p>
+              <a class="text-link" href="hacienda-ticopo-gutierrez.html">Conocer Hacienda Ticopo →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="suno" data-category="departamentos-fraccionales">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/suno.jpeg" alt="SUNO en San Bruno, Yucatán" loading="lazy" decoding="async">
+              <a class="property-name" href="suno.html" aria-label="Conocer SUNO">SUNO</a>
+            </div>
+            <div class="property-body">
+              <h3>SUNO</h3>
+              <div class="property-category">Departamentos fraccionales</div>
+              <div class="location">⌖ Ubicación: San Bruno, Yucatán</div>
+              <p>Una propuesta inmobiliaria junto al mar con una identidad natural y serena.</p>
+              <div class="property-meta"><span>Costa</span><span>Presentación 2025</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="suno">—</strong></p>
+              <a class="text-link" href="suno.html">Conocer SUNO →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="monarca" data-category="departamentos-lujo">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/monarca.jpg" alt="Monarca Departamentos" loading="lazy" decoding="async">
+              <a class="property-name" href="monarca.html" aria-label="Conocer Monarca">Monarca</a>
+            </div>
+            <div class="property-body">
+              <h3>Monarca</h3>
+              <div class="property-category">Departamentos de lujo</div>
+              <div class="location">⌖ Proyecto: departamentos</div>
+              <p>Una propuesta residencial definida por la elegancia y la atención al detalle.</p>
+              <div class="property-meta"><span>Departamentos</span><span>Brochure oficial</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="monarca">—</strong></p>
+              <a class="text-link" href="monarca.html">Conocer Monarca →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="anthia" data-category="semiurbanizado">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/anthia.jpg" alt="Anthia Hunucmá" loading="lazy" decoding="async">
+              <a class="property-name" href="anthia.html" aria-label="Conocer Anthia">Anthia</a>
+            </div>
+            <div class="property-body">
+              <h3>Anthia Hunucmá</h3>
+              <div class="property-category">Semiurbanizado</div>
+              <div class="location">⌖ Ubicación: Hunucmá, Yucatán</div>
+              <p>Terrenos semiurbanizados presentados como una oportunidad de crecimiento patrimonial.</p>
+              <div class="property-meta"><span>Terrenos</span><span>Brochure oficial</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="anthia">—</strong></p>
+              <a class="text-link" href="anthia.html">Conocer Anthia →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="marela-celestun" data-category="semiurbanizado">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/marela%20celestun.jpeg" alt="Marela Celestún" loading="lazy" decoding="async">
+              <a class="property-name" href="marela-celestun.html" aria-label="Conocer Marela Celestún">Marela Celestún</a>
+            </div>
+            <div class="property-body">
+              <h3>Marela Celestún</h3>
+              <div class="property-category">Semiurbanizado</div>
+              <div class="location">⌖ Ubicación: Celestún, Yucatán</div>
+              <p>Una propuesta vinculada al mar, la naturaleza y el carácter ecoturístico de Celestún.</p>
+              <div class="property-meta"><span>Piedra Pintada</span><span>Brochure DIC25</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="marela-celestun">—</strong></p>
+              <a class="text-link" href="marela-celestun.html">Conocer Marela Celestún →</a>
+            </div>
+          </article>
+
+          <article class="property-card" id="velamar" data-category="semiurbanizado">
+            <div class="property-image">
+              <img src="desarrollosparacadaplan/portadas/velamar.jpg" alt="Velamar en Uaymitún" loading="lazy" decoding="async">
+              <a class="property-name" href="velamar.html" aria-label="Conocer Velamar">Velamar</a>
+            </div>
+            <div class="property-body">
+              <h3>Velamar</h3>
+              <div class="property-category">Semiurbanizado</div>
+              <div class="location">⌖ Ubicación: Uaymitún, Yucatán</div>
+              <p>Terrenos premium a pasos del mar pensados como refugio familiar y estilo de vida.</p>
+              <div class="property-meta"><span>Terrenos premium</span><span>Brochure oficial</span></div>
+              <p class="request-counter">Clics de WhatsApp: <strong data-request-count="velamar">—</strong></p>
+              <a class="text-link" href="velamar.html">Conocer Velamar →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Perfil del asesor: agrega una fotografía cuando esté disponible. -->
+    <section class="section" id="agentes">
+      <div class="container">
+        <div class="agent-panel">
+          <div class="agent-photo">
+            <img src="fotos/agentes/manuel%20solis.jpg" alt="Ing. Manuel Solís, asesor inmobiliario" loading="lazy" decoding="async">
+          </div>
+          <div class="agent-info">
+            <span class="eyebrow">Atención personalizada</span>
+            <h2>Ing. Manuel Solís</h2>
+            <div class="agent-role">Asesor Comercial · INDOMO Desarrollos</div>
+            <p>
+              Con cinco años de trayectoria en el mercado inmobiliario de Mérida y Yucatán,
+              el Ing. Manuel Solís se especializa en lotes residenciales de alto nivel y
+              lotes de inversión estratégica. Su enfoque combina el análisis de ubicación,
+              la urbanización, la documentación y el momento adecuado para cada inversión.
+            </p>
+            <div class="agent-highlights" aria-label="Especialidades profesionales de Manuel Solís">
+              <div class="agent-highlight">
+                <strong>+5 años de trayectoria</strong>
+                <span>Experiencia comercial en desarrollos y lotes de inversión.</span>
+              </div>
+              <div class="agent-highlight">
+                <strong>Inversión con criterio</strong>
+                <span>Evaluación de ubicación, potencial de crecimiento y rentabilidad.</span>
+              </div>
+              <div class="agent-highlight">
+                <strong>Portafolio exclusivo</strong>
+                <span>Acceso a opciones de proyectos premium y oportunidades relevantes.</span>
+              </div>
+              <div class="agent-highlight">
+                <strong>Certeza y acompañamiento</strong>
+                <span>Orientación para revisar documentación y tomar decisiones con seguridad.</span>
+              </div>
+            </div>
+            <div class="agent-contact">
+              <a class="whatsapp-link" href="#" data-message="Hola Manuel, me gustaría recibir asesoría inmobiliaria.">
+                <span class="contact-icon" aria-hidden="true">☎</span>
+                999 179 7273
+              </a>
+              <a href="mailto:msolis65@gmail.com">
+                <span class="contact-icon" aria-hidden="true">✉</span>
+                msolis65@gmail.com
+              </a>
+              <a href="mailto:ventas@tierrayuc.mx">
+                <span class="contact-icon" aria-hidden="true">✉</span>
+                ventas@tierrayuc.mx
+              </a>
+              <a href="https://maps.google.com/?q=calle+47+por+50+y+52+330A+Col+Benito+Juarez+norte+Merida+Yucatán+97119" target="_blank" rel="noopener">
+                <span class="contact-icon" aria-hidden="true">⌖</span>
+                calle 47 por 50 y 52 330A, Col. Benito Juárez norte, Mérida, Yuc. 97119
+              </a>
+            </div>
+            <a class="button whatsapp-link" href="#" data-message="Hola Manuel, me gustaría recibir asesoría inmobiliaria.">Contactar al asesor <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="commercial-team">
+          <div class="commercial-team-heading">
+            <span class="eyebrow">Equipo de trabajo</span>
+            <h2>Conoce a nuestro equipo comercial</h2>
+            <p>Profesionales que forman parte de nuestro equipo y acompañan a nuestros clientes en cada desarrollo.</p>
+          </div>
+          <div class="commercial-team-grid">
+            <article class="commercial-team-card">
+              <div class="commercial-team-photo"><img src="fotos/agentes/equipo%20comercial/retratos/dary.jpg" alt="Dary Decle" loading="lazy" decoding="async"></div>
+              <h3>Dary Decle</h3>
+            </article>
+            <article class="commercial-team-card">
+              <div class="commercial-team-photo"><img src="fotos/agentes/equipo%20comercial/retratos/fabricio.jpg" alt="Fabricio Tejeda Alba" loading="lazy" decoding="async"></div>
+              <h3>Fabricio Tejeda Alba</h3>
+            </article>
+            <article class="commercial-team-card">
+              <div class="commercial-team-photo"><img src="fotos/agentes/equipo%20comercial/retratos/fernando.jpg" alt="Fernando Corona" loading="lazy" decoding="async"></div>
+              <h3>Fernando Corona</h3>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Alianzas: reemplaza las iniciales por logotipos reales si lo deseas. -->
+    <section class="section section--soft" id="alianzas">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Relaciones que generan valor</span>
+          <h2>Nuestras alianzas</h2>
+          <p>Colaboramos con aliados comerciales para ofrecer una experiencia coordinada y profesional.</p>
+        </div>
+
+        <div class="alliance-grid">
+          <article class="alliance-card">
+            <div class="alliance-logo" aria-hidden="true">ACD</div>
+            <h3>ACD Desarrollos</h3>
+            <p>Desarrollo y comercialización de proyectos inmobiliarios.</p>
+            <a class="text-link" href="acd-desarrollos.html" style="margin-top:12px">Conocer ACD →</a>
+          </article>
+          <article class="alliance-card">
+            <img class="alliance-image" src="ciento-diez-portada.png" alt="Portada de Ciento Diez" loading="lazy" decoding="async">
+            <h3>Ciento Diez</h3>
+            <p>Aliado comercial para nuevas oportunidades de inversión.</p>
+            <a class="text-link" href="ciento-diez.html" style="margin-top:12px">Conocer Ciento Diez →</a>
+          </article>
+          <article class="alliance-card">
+            <img class="alliance-image" src="indomo-portada.png" alt="Portada de Indomo Desarrollos" loading="lazy" decoding="async">
+            <h3>Indomo Desarrollos</h3>
+            <p>Aliado en el desarrollo de proyectos inmobiliarios en el sureste mexicano.</p>
+            <a class="text-link" href="indomo.html" style="margin-top:12px">Conocer Indomo →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario: al enviarlo, prepara un mensaje de WhatsApp con los datos ingresados. -->
+    <section class="section" id="contactos">
+      <div class="container contact-layout">
+        <div class="contact-copy">
+          <span class="eyebrow">Estamos para ayudarte</span>
+          <h2>Hablemos de tu próximo proyecto.</h2>
+          <p>
+            Cuéntanos qué estás buscando y el Ing. Manuel Solís se pondrá en
+            contacto contigo para compartirte más información.
+          </p>
+          <div class="social-links" aria-label="Redes sociales">
+            <!-- Actualiza # con los enlaces reales de tus redes sociales. -->
+            <a href="#" aria-label="Instagram">Instagram ↗</a>
+            <a href="#" aria-label="Facebook">Facebook ↗</a>
+            <a href="#" aria-label="TikTok">TikTok ↗</a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form" data-whatsapp-number="5219991797273">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Nombre</label>
+              <input id="name" name="name" type="text" placeholder="Tu nombre" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="phone">Teléfono / WhatsApp</label>
+              <input id="phone" name="phone" type="tel" placeholder="+52 999 123 4567" autocomplete="tel" aria-describedby="phone-auth-status" required>
+              <div class="phone-auth">
+                <label class="phone-auth-consent" id="phone-consent-wrap" hidden>
+                  <input id="phone-consent" type="checkbox">
+                  <span>Acepto guardar mi teléfono verificado para identificar mis solicitudes y mantener mi acceso.</span>
+                </label>
+                <button class="button button--outline" id="phone-send-code" type="button" hidden>Enviar código por WhatsApp</button>
+                <div id="phone-code-step" hidden>
+                  <div class="phone-code-row">
+                    <div class="field">
+                      <label for="phone-code">Código de seis dígitos</label>
+                      <input id="phone-code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="123456">
+                    </div>
+                    <div class="phone-auth-actions">
+                      <button class="button" id="phone-verify-code" type="button">Verificar</button>
+                      <button class="button button--outline" id="phone-use-another" type="button" hidden>Usar otro número</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-auth-actions">
+                  <button class="button button--outline" id="phone-change-number" type="button" hidden>Cerrar sesión y cambiar número</button>
+                  <button class="button button--outline" id="phone-delete-account" type="button" hidden>Eliminar cuenta y teléfono guardado</button>
+                </div>
+                <p class="form-note phone-auth-status" id="phone-auth-status" role="status" aria-live="polite"></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="development">Desarrollo de interés</label>
+            <select id="development" name="development" required>
+              <option value="" selected disabled>Selecciona un desarrollo</option>
+              <option>Desarrollos</option>
+              <option>Solhá</option>
+              <option>Nexum82</option>
+              <option>Lakuun</option>
+              <option>Martell</option>
+              <option>Marela Life</option>
+              <option>Hacienda Ticopo Gutiérrez</option>
+              <option>SUNO</option>
+              <option>Monarca</option>
+              <option>Anthia Hunucmá</option>
+              <option>Marela Celestún</option>
+              <option>Velamar</option>
+              <option>Quiero recibir asesoría general</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="time">Tiempo de compra</label>
+              <select id="time" name="time" required>
+                <option value="" selected disabled>Selecciona...</option>
+                <option value="Inmediata">Inmediata</option>
+                <option value="Dos semanas">Dos semanas</option>
+                <option value="Solo información">Solo información</option>
+                <option value="Más adelante">Más adelante</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="payment">Cuentas con el enganche</label>
+              <select id="payment" name="payment" required>
+                <option value="" selected disabled>Selecciona...</option>
+                <option value="Completo">Completo</option>
+                <option value="Diferir enganche en pagos">Diferir enganche en pagos</option>
+                <option value="Mayor que el enganche">Mayor que el enganche</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" placeholder="¿En qué podemos ayudarte?" required></textarea>
+          </div>
+
+          <button class="button" id="contact-submit" type="submit">Enviar por WhatsApp</button>
+          <p class="form-note">Al enviar, se abrirá WhatsApp con tu mensaje listo para compartir.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span><strong>Solís Inmobiliaria</strong> · Desarrollos y terrenos de inversión</span>
+      <span>© <span id="year"></span> Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp: actualiza el número en el script. -->
+  <a
+    class="whatsapp-float whatsapp-link"
+    href="#"
+    data-message="Hola, quiero recibir información sobre sus desarrollos."
+    aria-label="Contactar por WhatsApp"
+    title="Contactar por WhatsApp"
+  >✆</a>
+
+  <script>
+    /*
+      CONFIGURACIÓN:
+      Reemplaza el número de ejemplo por el WhatsApp real en formato internacional,
+      solo números y sin espacios, signos + ni guiones. Ejemplo: 521234567890.
+    */
+    const WHATSAPP_NUMBER = document.querySelector("#contact-form").dataset.whatsappNumber;
+
+    // Abre el submenú Productos con clic, útil en móviles y accesible por teclado.
+    const dropdownParent = document.querySelector(".has-dropdown");
+    const dropdownButton = document.querySelector(".products-toggle");
+
+    dropdownButton.addEventListener("click", () => {
+      const isOpen = dropdownParent.classList.toggle("is-open");
+      dropdownButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    // Menú móvil: alterna su visibilidad y actualiza el estado accesible.
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // Cierra el menú al elegir un enlace en móvil.
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menú");
+        menuToggle.textContent = "☰";
+        dropdownParent.classList.remove("is-open");
+        dropdownButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Filtros de categorías para las tarjetas de desarrollos.
+    const filterButtons = document.querySelectorAll(".filter-button");
+    const propertyCards = document.querySelectorAll(".property-card");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedFilter = button.dataset.filter;
+
+        filterButtons.forEach((item) => {
+          const isActive = item === button;
+          item.classList.toggle("active", isActive);
+          item.setAttribute("aria-pressed", String(isActive));
+        });
+
+        propertyCards.forEach((card) => {
+          const matches = selectedFilter === "todos" || card.dataset.category === selectedFilter;
+          card.hidden = !matches;
+        });
+      });
+    });
+
+    // Genera enlaces directos de WhatsApp con mensajes precargados.
+    document.querySelectorAll(".whatsapp-link").forEach((link) => {
+      const message = link.dataset.message || "Hola, quiero recibir información.";
+      link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    });
+
+    // Lógica avanzada del formulario con guardado en BD
+    const contactForm = document.querySelector("#contact-form");
+    const phoneInput = document.querySelector("#phone");
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      phoneInput.value = "Enviado desde móvil";
+      phoneInput.readOnly = true;
+    }
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      if (!isMobile) {
+        const phoneVal = phoneInput.value.replace(/\s+/g, '');
+        // Valida que tenga exactamente 10 a 13 dígitos
+        if (!/^\+?[0-9]{10,13}$/.test(phoneVal)) {
+          alert("Por favor ingresa un número de WhatsApp válido (de 10 a 13 dígitos).");
+          return;
+        }
+      }
+
+      const formData = {
+        name: document.querySelector("#name").value,
+        phone: phoneInput.value,
+        development: document.querySelector("#development").value,
+        time: document.querySelector("#time").value,
+        payment: document.querySelector("#payment").value,
+        message: document.querySelector("#message").value
+      };
+
+      // Guardar en BD
+      try {
+        const response = await fetch('api/guardar_prospecto.php', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error("Error del servidor:", errorData.message);
+        }
+      } catch (err) {
+        console.error("No se pudo conectar a la base de datos:", err);
+      }
+
+      const whatsappMsg = `Hola, mi nombre es ${formData.name}.
+Teléfono: ${formData.phone}
+Desarrollo de interés: ${formData.development}
+Tiempo de compra: ${formData.time}
+Cuentas con enganche: ${formData.payment}
+Mensaje: ${formData.message}`;
+
+      window.open(`https://wa.me/5219991797273?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+    });
+
+    // Año actualizado automáticamente en el pie de página.
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+  <!-- <script src="customer-auth.js" defer></script> -->
+  <script src="counter.js" defer></script>
+</body>
+</html>

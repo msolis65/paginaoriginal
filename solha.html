@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102a2a">
+  <meta name="description" content="Conoce Solhá, desarrollo residencial en Dzidzantún, Yucatán, con lotes de 350 m². Consulta ubicación, inversión y detalles del proyecto.">
+  <title>Solhá | Lotes residenciales en Dzidzantún, Yucatán</title>
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://www.tierrayuc.mx/solha.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Tierra Yucatán">
+  <meta property="og:title" content="Solhá | Lotes residenciales en Dzidzantún, Yucatán">
+  <meta property="og:description" content="Conoce Solhá, desarrollo residencial en Dzidzantún, Yucatán, con lotes de 350 m². Consulta ubicación, inversión y detalles del proyecto.">
+  <meta property="og:url" content="https://www.tierrayuc.mx/solha.html">
+  <meta property="og:image" content="https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg">
+  <meta property="og:image:alt" content="Desarrollos inmobiliarios y propiedades en Yucatán">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Solhá | Lotes residenciales en Dzidzantún, Yucatán">
+  <meta name="twitter:description" content="Conoce Solhá, desarrollo residencial en Dzidzantún, Yucatán, con lotes de 350 m². Consulta ubicación, inversión y detalles del proyecto.">
+  <meta name="twitter:image" content="https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg">
+  <style>
+    :root {
+      --ink: #172625;
+      --green: #173c38;
+      --green-light: #24554c;
+      --gold: #c3a36a;
+      --cream: #f7f6f2;
+      --white: #fff;
+      --gray: #687472;
+      --line: #e4e8e4;
+      --shadow: 0 16px 48px rgba(23, 38, 37, .09);
+      --radius: 18px;
+      --content: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--content), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(16, 42, 42, .97);
+      color: var(--white);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner {
+      display: flex;
+      width: min(1320px, calc(100% - 40px));
+      min-height: 74px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.05rem;
+      line-height: 1.2;
+    }
+
+    .brand-name small {
+      display: block;
+      color: rgba(255,255,255,.65);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      font-size: .56rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: clamp(12px, 2vw, 26px);
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,.86);
+      font-size: .82rem;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-links .nav-contact {
+      padding: 9px 15px;
+      border: 1px solid rgba(195,163,106,.75);
+      border-radius: 999px;
+      color: var(--white);
+    }
+
+    .hero {
+      position: relative;
+      display: flex;
+      min-height: 610px;
+      align-items: center;
+      overflow: hidden;
+      background: #102a2a;
+      color: var(--white);
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 48%;
+      opacity: .46;
+    }
+
+    .hero::after {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(13,36,35,.94), rgba(13,36,35,.76) 52%, rgba(13,36,35,.25));
+      content: "";
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(760px, 100%);
+      padding: 100px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green-light);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 26px;
+      height: 1px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .hero .eyebrow {
+      color: #e5d5b3;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 500;
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-top: 18px;
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      letter-spacing: -.05em;
+      line-height: .96;
+    }
+
+    .hero h1 em {
+      color: #e0c58f;
+      font-style: normal;
+    }
+
+    .hero-copy {
+      max-width: 610px;
+      margin-top: 22px;
+      color: rgba(255,255,255,.84);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 21px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--white);
+      font-size: .9rem;
+      font-weight: 750;
+      transition: transform .2s ease, background .2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--green-light);
+    }
+
+    .button--light {
+      border-color: rgba(255,255,255,.55);
+      background: transparent;
+    }
+
+    .button--light:hover {
+      background: rgba(255,255,255,.12);
+    }
+
+    .hero-note {
+      margin-top: 34px;
+      color: rgba(255,255,255,.78);
+      font-size: .82rem;
+      letter-spacing: .04em;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section--soft {
+      background: var(--cream);
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin-top: 12px;
+      color: var(--ink);
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+
+    .section-heading p {
+      margin-top: 14px;
+      color: var(--gray);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 54px;
+    }
+
+    .project-copy h3 {
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    .project-copy p {
+      margin-top: 14px;
+      color: var(--gray);
+    }
+
+    .project-image {
+      display: grid;
+      min-height: 400px;
+      place-items: center;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #e9eee9;
+      box-shadow: var(--shadow);
+    }
+
+    .project-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 640px;
+      object-fit: contain;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+
+    .metric {
+      min-height: 132px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: 0 8px 26px rgba(23,38,37,.04);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      font-weight: 500;
+      letter-spacing: -.04em;
+      line-height: 1.1;
+    }
+
+    .metric span {
+      display: block;
+      margin-top: 8px;
+      color: var(--gray);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    .fine-print {
+      margin-top: 16px;
+      color: var(--gray);
+      font-size: .76rem;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .location-copy h2 {
+      margin-top: 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+
+    .location-copy p {
+      margin-top: 16px;
+      color: var(--gray);
+    }
+
+    .location-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .location-tags span {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f1f4f1;
+      color: #50615d;
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    .distance-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .distance {
+      min-height: 105px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--white);
+    }
+
+    .distance strong {
+      display: block;
+      color: var(--green);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+    }
+
+    .distance span {
+      color: var(--gray);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .availability {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-left: 2px solid var(--gold);
+      background: var(--white);
+      color: #52605d;
+      font-size: .85rem;
+    }
+
+    .recognition-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .recognition {
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--white);
+    }
+
+    .recognition strong {
+      display: block;
+      color: #9a7c49;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    .recognition p {
+      margin-top: 8px;
+      color: #52605d;
+      font-size: .82rem;
+    }
+
+    .cta {
+      padding: 76px 0;
+      background: #102a2a;
+      color: var(--white);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .cta h2 {
+      max-width: 620px;
+      margin-top: 12px;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      letter-spacing: -.04em;
+      line-height: 1.08;
+    }
+
+    .cta .eyebrow {
+      color: #e5d5b3;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .cta .button {
+      background: var(--gold);
+      color: #172625;
+    }
+
+    .cta .button--light {
+      border-color: rgba(255,255,255,.48);
+      background: transparent;
+      color: var(--white);
+    }
+
+    .disclaimer {
+      padding: 20px 0;
+      background: #f1f2ee;
+      color: var(--gray);
+      font-size: .75rem;
+    }
+
+    .footer {
+      padding: 25px 0;
+      background: #102a2a;
+      color: rgba(255,255,255,.72);
+      font-size: .8rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer a {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    @media (max-width: 900px) {
+      .metrics,
+      .recognition-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .project-grid,
+      .location-grid {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      html {
+        scroll-padding-top: 110px;
+      }
+
+      .container {
+        width: min(100% - 36px, var(--content));
+      }
+
+      .nav-inner {
+        width: calc(100% - 32px);
+        flex-wrap: wrap;
+        gap: 0 12px;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 9px 18px;
+        padding-top: 10px;
+      }
+
+      .nav-links a {
+        font-size: .76rem;
+      }
+
+      .nav-links .nav-contact {
+        padding: 0;
+        border: 0;
+        color: var(--gold);
+      }
+
+      .hero {
+        min-height: 590px;
+      }
+
+      .hero-content {
+        padding: 90px 0 100px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.1rem, 14vw, 5rem);
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .project-grid,
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        min-height: 300px;
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .metrics,
+      .recognition-grid,
+      .distance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        min-height: 0;
+      }
+
+      .hero-actions,
+      .hero-actions .button,
+      .cta-actions,
+      .cta-actions .button {
+        width: 100%;
+      }
+
+      .cta-actions {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+    .brand-logo { display:block; width:48px; height:64px; flex-shrink:0; object-fit:contain; }
+    .navbar {
+      position: sticky;
+      z-index: 1000;
+      inset: 0 0 auto;
+      height: 76px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      background: rgba(16, 42, 42, .96);
+      color: var(--white);
+      backdrop-filter: blur(14px);
+    }
+    .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--white);
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+    @media (max-width: 760px) {
+      .menu-toggle { display: inline-grid; place-items: center; }
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        right: 0;
+        left: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 20px 20px;
+        background: #102a2a;
+      }
+      .nav-links.is-open { display: flex; }
+    }
+  </style>
+</head>
+
+<body>
+    <header class="navbar">
+    <nav class="nav-inner" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="Tierra Yucatán, ir al inicio">
+        <img class="brand-logo" src="logos/tierrayuc.jpg" alt="Tierra Yucatán">
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">☰</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="index.html#inicio">Inicio</a></li>
+        <li><a class="nav-link" href="index.html#promociones">Promociones</a></li>
+        <li><a class="nav-link" href="index.html#productos">Desarrollos</a></li>
+        <li><a class="nav-link" href="index.html#contactos">Contactos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <img class="hero-image" src="/gif/solha2.jpg" alt="">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Desarrollo residencial · Dzidzantún, Yucatán</span>
+          <h1>Solhá, un refugio entre <em>la tierra y el mar.</em></h1>
+          <p class="hero-copy">
+            Un proyecto inspirado en la calma y la naturaleza de la costa yucateca,
+            a minutos de las playas del estado y con fácil acceso desde Mérida.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#proyecto">Conocer Solhá <span aria-hidden="true">↓</span></a>
+            <a class="button button--light" href="pdf/BROCHURE%20OFICIAL%20SOLHA.pdf" target="_blank" rel="noopener">Ver brochure oficial ↗</a>
+          </div>
+          <p class="hero-note">“El lujo está en la calma.”</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proyecto">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Solhá · Dzidzantún</span>
+          <h2>Cerca del mar, en conexión con el entorno.</h2>
+          <p>
+            El brochure describe Solhá como un desarrollo en Dzidzantún, Yucatán:
+            un refugio donde tierra y mar se encuentran, rodeado por la calma y la
+            belleza natural de la costa.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <div class="project-copy">
+            <h3>Un lugar para volver a lo esencial.</h3>
+            <p>
+              La propuesta invita a disfrutar un ritmo más tranquilo, con el viento,
+              la arena y el sonido del mar como parte del paisaje, sin perder la
+              conexión con Mérida y las localidades de la región.
+            </p>
+            <p>
+              El mapa del brochure muestra referencias como Dzidzantún, Dzilam Bravo,
+              Telchac Puerto, San Crisanto, Motul y Mérida.
+            </p>
+            <p>
+              El folleto también presenta Dzidzantún como una zona de crecimiento con
+              potencial de plusvalía; consulta con el equipo comercial sus condiciones
+              y perspectivas actualizadas.
+            </p>
+            <div class="project-image">
+              <img src="/gif/solha1.jpg" alt="Vista aérea del desarrollo Solhá, sus terrenos y la costa yucateca" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div>
+            <span class="eyebrow" id="inversion">Lotes e inversión</span>
+            <div class="metrics">
+              <div class="metric"><strong>350 m²</strong><span>superficie de cada lote indicada</span></div>
+              <div class="metric"><strong>$550/m²</strong><span>precio desde el brochure</span></div>
+              <div class="metric"><strong>10%</strong><span>enganche indicado en el folleto</span></div>
+              <div class="metric"><strong>$3,609</strong><span>mensualidad indicada en el folleto</span></div>
+            </div>
+            <p class="fine-print">
+              Precios, enganche y mensualidad son referencias del brochure y pueden haber
+              cambiado. Confirma la cotización, el plan de pagos y la disponibilidad
+              directamente con el equipo comercial.
+            </p>
+            <div class="availability">
+              El plano de lotes del brochure indica 43% vendido. No se especifica una
+              fecha de actualización; solicita el inventario vigente antes de tomar
+              una decisión.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="ubicacion">
+      <div class="container location-grid">
+        <div class="location-copy">
+          <span class="eyebrow">Costa yucateca</span>
+          <h2>Dzidzantún, con la costa a pocos minutos.</h2>
+          <p>
+            El brochure señala estos tiempos aproximados de traslado. Pueden variar
+            según la ruta y las condiciones del camino.
+          </p>
+          <div class="location-tags" aria-label="Referencias de ubicación del brochure">
+            <span>Dzidzantún</span>
+            <span>Telchac Puerto</span>
+            <span>San Crisanto</span>
+            <span>Mérida</span>
+          </div>
+        </div>
+        <div>
+          <div class="distance-grid" aria-label="Distancias aproximadas del brochure">
+            <div class="distance"><strong>15 min</strong><span>playa</span></div>
+            <div class="distance"><strong>25 min</strong><span>San Crisanto</span></div>
+            <div class="distance"><strong>35 min</strong><span>Telchac Puerto</span></div>
+            <div class="distance"><strong>1 h 20 min</strong><span>Mérida</span></div>
+          </div>
+          <p class="fine-print">Tiempos aproximados publicados en el brochure oficial.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="yucatan-heading">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Yucatán como escenario</span>
+          <h2 id="yucatan-heading">Una región que el brochure destaca por su calidad de vida.</h2>
+          <p>
+            El folleto menciona estos reconocimientos y atribuye las referencias a las
+            fuentes indicadas. No incluye fechas de publicación; verifica su vigencia
+            antes de usarlos como datos actuales.
+          </p>
+        </div>
+        <div class="recognition-grid">
+          <article class="recognition">
+            <strong>1.er lugar</strong>
+            <p>Estado más seguro de México, atribuido a INEGI.</p>
+          </article>
+          <article class="recognition">
+            <strong>2.º lugar</strong>
+            <p>Ciudad más segura de América para Mérida, atribuido a CEOWorld.</p>
+          </article>
+          <article class="recognition">
+            <strong>3.er lugar</strong>
+            <p>Mejores destinos del mundo para Yucatán, atribuido a Forbes.</p>
+          </article>
+          <article class="recognition">
+            <strong>4.º lugar</strong>
+            <p>Mejor ciudad para el retiro para Mérida, atribuido a CNN Money.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contacto">
+      <div class="container cta-inner">
+        <div>
+          <span class="eyebrow">Más información</span>
+          <h2>Conoce las opciones disponibles para invertir en Solhá.</h2>
+        </div>
+        <div class="cta-actions">
+          <a class="button" href="tel:+529991797273">Llamar al 999 179 7273</a>
+          <a class="button button--light" href="pdf/BROCHURE%20OFICIAL%20SOLHA.pdf" target="_blank" rel="noopener">Abrir brochure PDF ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="disclaimer">
+      <div class="container">
+        Información resumida del brochure oficial Solhá. Precios, planes de pago,
+        disponibilidad, distancias y reconocimientos deben confirmarse con el equipo
+        comercial; las condiciones pueden cambiar.
+      </div>
+    </aside>
+  </main>
+
+    <footer class="footer">
+    <div class="container footer-inner">
+      <span><strong>Solís Inmobiliaria</strong> · Solhá, Dzidzantún</span>
+      <span>© <span id="year"></span> Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    // Función robusta para abrir/cerrar menú
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+  </script>
+  <script src="counter.js" defer></script>
+</body>
+</html>
+
