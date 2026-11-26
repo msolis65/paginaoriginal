@@ -1537,7 +1537,7 @@
       <div class="container">
         <div class="hero-content">
           <span class="eyebrow">Inversión con visión de futuro</span>
-          <p style="font-size:0.8rem; color:#fff; margin-bottom:10px;">Visitas: <strong data-site-visits>0</strong></p>
+          <p style="font-size:0.8rem; color:#fff; margin-bottom:10px;">Visitas de esta página: <strong data-page-visits>0</strong></p>
           <h1>Tu próxima gran decisión <em>comienza aquí.</em></h1>
           <p class="hero-copy">
             Descubre desarrollos y terrenos de inversión pensados para construir
@@ -2086,40 +2086,6 @@
       solo números y sin espacios, signos + ni guiones. Ejemplo: 521234567890.
     */
     const WHATSAPP_NUMBER = "5219991797273";
-    const API_URL = "api/guardar_prospecto.php";
-
-    // Función para obtener las estadísticas al cargar la página
-    async function fetchStats() {
-      try {
-        const response = await fetch(API_URL);
-        if (response.ok) {
-          const data = await response.json();
-          updateUI(data);
-        }
-      } catch (err) {
-        console.error("Error al cargar estadísticas:", err);
-      }
-    }
-
-    // Función para actualizar el DOM con los datos recibidos
-    function updateUI(data) {
-      if (data.visits !== undefined) {
-        document.querySelectorAll("[data-site-visits]").forEach(el => el.textContent = data.visits.toLocaleString());
-      }
-      if (data.requests) {
-        Object.keys(data.requests).forEach(key => {
-          document.querySelectorAll(`[data-request-count="${key}"]`).forEach(el => el.textContent = data.requests[key].toLocaleString());
-        });
-      }
-    }
-
-    // Registrar visita al cargar
-    fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ event: "visit" })
-    }).then(fetchStats);
-
     // Abre el submenú Productos con clic, útil en móviles y accesible por teclado.
     const dropdownParent = document.querySelector(".has-dropdown");
     const dropdownButton = document.querySelector(".products-toggle");
@@ -2182,28 +2148,6 @@
       link.target = "_blank";
       link.rel = "noopener noreferrer";
 
-      // Registrar clic en botón de WhatsApp
-      if (development) {
-        link.addEventListener("click", () => {
-          fetch(API_URL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ event: "request", development: development })
-          }).then(fetchStats);
-        });
-      }
-    });
-
-    // Registrar clic en enlaces de desarrollos del menú
-    document.querySelectorAll(".dropdown a").forEach((link) => {
-      link.addEventListener("click", (e) => {
-        const devName = e.target.textContent.toLowerCase().replace(/\s+/g, '-');
-        fetch(API_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ event: "request", development: devName })
-        }).then(fetchStats);
-      });
     });
 
     // Lógica avanzada del formulario con guardado en BD

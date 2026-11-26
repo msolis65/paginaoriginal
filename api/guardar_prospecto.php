@@ -54,10 +54,17 @@ try {
             $input['message'] ?? ''
         ]);
 
-        // Incrementar contador de solicitud si viene un desarrollo
+        // Contar solicitudes por desarrollo con la misma clave que usa counter.php.
         if (!empty($input['development'])) {
-             $pdo->prepare("INSERT INTO counter_stats (page, count) VALUES (?, 1) ON DUPLICATE KEY UPDATE count = count + 1")->execute([$input['development']]);
-}
+            $developmentKey = strtolower(trim((string)$input['development']));
+            $asciiDevelopment = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $developmentKey);
+            $developmentKey = preg_replace('/[^a-z0-9]+/', '-', $asciiDevelopment ?: $developmentKey);
+            $developmentKey = trim(substr($developmentKey, 0, 40), '-');
+            if ($developmentKey !== '') {
+                $pdo->prepare("INSERT INTO counter_stats (page, count) VALUES (?, 1) ON DUPLICATE KEY UPDATE count = count + 1")
+                    ->execute(['request:' . $developmentKey]);
+            }
+        }
 
         echo json_encode(['status' => 'success']);
     } else {

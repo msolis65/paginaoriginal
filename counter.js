@@ -1,72 +1,45 @@
 (() => {
-  const allowedDevelopments = new Set([
-    "acd-desarrollos",
-    "anthia",
-    "hacienda-ticopo-gutierrez",
-    "lakuun",
-    "lote-telchac",
-    "marela-celestun",
-    "marela-life",
-    "martell",
-    "monarca",
-    "nexum82",
-    "solha",
-    "suno",
-    "terreno-dzoyola",
-    "valora",
-    "velamar"
-  ]);
   const apiUrl = new URL("api/counter.php", document.currentScript.src);
-  const pageName = decodeURIComponent(window.location.pathname.split("/").pop() || "")
-    .replace(/\.html?$/i, "");
+  const pageName = decodeURIComponent(window.location.pathname.split("/").pop() || "index")
+    .replace(/\.html?$/i, "") || "index";
 
-  const API_URL = "api/guardar_prospecto.php";
-
-  // 1. Registrar visita automáticamente al cargar cualquier página
-  fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ event: "visit" })
-  }).then(r => r.json()).then(data => displayCounts(data));
-
-  // 2. Función para registrar clics de interés (solicitudes)
-  const registrarInteres = (development) => {
-    if (!development) return;
-    fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ event: "request", development: development })
-    }).then(r => r.json()).then(data => displayCounts(data));
-  };
+  const sendEvent = (event, values = {}) => fetch(apiUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ event, ...values }),
+    keepalive: true
+  }).then((response) => response.ok ? response.json() : null).then(displayCounts).catch(() => {});
 
   function displayCounts(data) {
     if (!data) return;
     document.querySelectorAll("[data-site-visits]").forEach((element) => {
-      element.textContent = data.visits ? data.visits.toLocaleString("es-MX") : "0";
+      element.textContent = Number(data.visits || 0).toLocaleString("es-MX");
     });
-
+    document.querySelectorAll("[data-page-visits]").forEach((element) => {
+      element.textContent = Number(data.page_visits?.[element.dataset.pageVisits || pageName] || 0).toLocaleString("es-MX");
+    });
     document.querySelectorAll("[data-request-count]").forEach((element) => {
-      const dev = element.dataset.requestCount;
-      const count = data.requests && data.requests[dev] ? data.requests[dev] : 0;
-      element.textContent = count.toLocaleString("es-MX");
+      element.textContent = Number(data.requests?.[element.dataset.requestCount] || 0).toLocaleString("es-MX");
+    });
+    document.querySelectorAll("[data-most-requested]").forEach((element) => {
+      const top = data.most_requested_development;
+      element.textContent = top ? `${top.development} (${Number(top.count).toLocaleString("es-MX")} solicitudes)` : "Sin solicitudes registradas";
     });
   }
 
-  // 3. Detectar clics en botones de WhatsApp
-  document.addEventListener("click", (e) => {
-    const link = e.target.closest(".whatsapp-link");
-    if (link && link.dataset.development) {
-      registrarInteres(link.dataset.development);
-    }
+  // Cada carga de página suma una visita total y otra para la página correspondiente.
+  sendEvent("visit", { page: pageName });
+
+  document.addEventListener("click", (event) => {
+    const link = event.target.closest(".whatsapp-link");
+    if (link?.dataset.development) sendEvent("request", { development: link.dataset.development });
   });
 
-  // 4. Detectar clics en el menú de desarrollos
   document.querySelectorAll(".dropdown a").forEach((link) => {
-    link.addEventListener("click", (e) => {
-      // Extrae el nombre del desarrollo del texto del enlace
-      const devName = e.target.textContent.toLowerCase().trim().replace(/\s+/g, '-');
-      registrarInteres(devName);
+    link.addEventListener("click", () => {
+      const development = link.textContent.toLowerCase().trim().normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      if (development) sendEvent("request", { development });
     });
   });
 })();
-
