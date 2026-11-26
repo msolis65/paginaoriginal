@@ -223,6 +223,7 @@
       align-items: center;
       gap: 10px;
       flex-shrink: 0;
+      padding: 3rem 0;
     }
 
     .brand-mark {
@@ -825,7 +826,7 @@
     }
 
     .agent-photo img {
-      object-position: center 22%;
+      font-position: center 22%;
     }
 
     .agent-photo span {
@@ -1473,8 +1474,8 @@
   <!-- Navegación fija. Las opciones principales se mantienen tal como se solicitaron. -->
   <header class="navbar">
     <nav class="nav-inner" aria-label="Navegación principal">
-      <a class="brand" href="index.html" aria-label="Tierra Yucat�n, ir al inicio"><div style="display: flex; flex-direction: column; align-items: center;">
-            <img class="brand-logo" src="logos/tierrayuc.jpg" alt="Tierra Yucat�n">
+      <a class="brand" href="index.html" aria-label="Tierra Yucatn, ir al inicio"><div style="display: flex; flex-direction: column; align-items: center;">
+            <img class="brand-logo" src="logos/tierrayuc.jpg" alt="Tierra Yucatn">
             <span style="font-size: 0.6rem; font-weight: 700; color: #e0c58f; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; line-height: 1;">Tierra Yuc.<br>Desarrollos<br>Real Estate</span>
           </div></a>
 
@@ -1536,6 +1537,7 @@
       <div class="container">
         <div class="hero-content">
           <span class="eyebrow">Inversión con visión de futuro</span>
+          <p style="font-size:0.8rem; color:#fff; margin-bottom:10px;">Visitas: <strong data-site-visits>0</strong></p>
           <h1>Tu próxima gran decisión <em>comienza aquí.</em></h1>
           <p class="hero-copy">
             Descubre desarrollos y terrenos de inversión pensados para construir
@@ -1546,7 +1548,7 @@
             <a class="button button--outline" href="#contactos">Hablar con un asesor</a>
           </div>
           <p class="hero-note">Asesoría cercana. Oportunidades extraordinarias.</p>
-          <p class="visitor-counter">Visitas al sitio: <strong data-site-visits>—</strong></p>
+          <p class="visitor-counter" hidden>Visitas al sitio: <strong data-site-visits>—</strong></p>
         </div>
       </div>
     </section>
@@ -1674,7 +1676,7 @@
               <h3>Solhá</h3>
               <div class="property-category">Semiurbanizado</div>
               <div class="location">⌖ Ubicación: [agregar ciudad o zona]</div>
-              <p>Un proyecto para quienes buscan invertir en una zona con proyección.</p>
+              <p>Un proyecto para quienes buscan invertir in una zona con proyección.</p>
               <div class="property-meta"><span>Terrenos</span><span>Plan de inversión</span></div>
               <p class="request-counter">Clics de WhatsApp: <strong data-request-count="solha">—</strong></p>
               <a class="text-link" href="solha.html">Conocer Solhá →</a>
@@ -2083,7 +2085,40 @@
       Reemplaza el número de ejemplo por el WhatsApp real en formato internacional,
       solo números y sin espacios, signos + ni guiones. Ejemplo: 521234567890.
     */
-    const WHATSAPP_NUMBER = document.querySelector("#contact-form").dataset.whatsappNumber;
+    const WHATSAPP_NUMBER = "5219991797273";
+    const API_URL = "api/guardar_prospecto.php";
+
+    // Función para obtener las estadísticas al cargar la página
+    async function fetchStats() {
+      try {
+        const response = await fetch(API_URL);
+        if (response.ok) {
+          const data = await response.json();
+          updateUI(data);
+        }
+      } catch (err) {
+        console.error("Error al cargar estadísticas:", err);
+      }
+    }
+
+    // Función para actualizar el DOM con los datos recibidos
+    function updateUI(data) {
+      if (data.visits !== undefined) {
+        document.querySelectorAll("[data-site-visits]").forEach(el => el.textContent = data.visits.toLocaleString());
+      }
+      if (data.requests) {
+        Object.keys(data.requests).forEach(key => {
+          document.querySelectorAll(`[data-request-count="${key}"]`).forEach(el => el.textContent = data.requests[key].toLocaleString());
+        });
+      }
+    }
+
+    // Registrar visita al cargar
+    fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event: "visit" })
+    }).then(fetchStats);
 
     // Abre el submenú Productos con clic, útil en móviles y accesible por teclado.
     const dropdownParent = document.querySelector(".has-dropdown");
@@ -2141,9 +2176,34 @@
     // Genera enlaces directos de WhatsApp con mensajes precargados.
     document.querySelectorAll(".whatsapp-link").forEach((link) => {
       const message = link.dataset.message || "Hola, quiero recibir información.";
+      const development = link.dataset.development || null;
+
       link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
+
+      // Registrar clic en botón de WhatsApp
+      if (development) {
+        link.addEventListener("click", () => {
+          fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ event: "request", development: development })
+          }).then(fetchStats);
+        });
+      }
+    });
+
+    // Registrar clic en enlaces de desarrollos del menú
+    document.querySelectorAll(".dropdown a").forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const devName = e.target.textContent.toLowerCase().replace(/\s+/g, '-');
+        fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ event: "request", development: devName })
+        }).then(fetchStats);
+      });
     });
 
     // Lógica avanzada del formulario con guardado en BD
@@ -2158,7 +2218,7 @@
 
         contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-        
+
       if (!isMobile) {
         const phoneVal = phoneInput.value.replace(/\s+/g, '');
         if (!/^\+?[0-9]{10,13}$/.test(phoneVal)) {
@@ -2219,7 +2279,4 @@ Mensaje: ${formData.message}`;
   <script src="counter.js" defer></script>
 </body>
 </html>
-
-
-
 

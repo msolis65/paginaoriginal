@@ -24,12 +24,25 @@ try {
         fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )");
 
+    $pdo->exec("CREATE TABLE IF NOT EXISTS counter_stats (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        page VARCHAR(50) UNIQUE,
+        count INT DEFAULT 0
+    )");
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $input = json_decode(file_get_contents('php://input'), true);
 
         if (!$input) {
             throw new Exception("Datos no recibidos correctamente.");
         }
+
+        // Si es una visita (event=visit) o un registro de prospecto
+        if (isset($input['event']) && $input['event'] === 'visit') {
+            $pdo->prepare("INSERT INTO counter_stats (page, count) VALUES ('total_visits', 1) ON DUPLICATE KEY UPDATE count = count + 1")->execute();
+        echo json_encode(['status' => 'success']);
+            exit;
+    }
 
         $stmt = $pdo->prepare("INSERT INTO prospectos (cliente, telefono, desarrollo, inicio_proyecto, enganche, descripcion) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->execute([
@@ -41,7 +54,20 @@ try {
             $input['message'] ?? ''
         ]);
 
+        // Incrementar contador de solicitud si viene un desarrollo
+        if (!empty($input['development'])) {
+             $pdo->prepare("INSERT INTO counter_stats (page, count) VALUES (?, 1) ON DUPLICATE KEY UPDATE count = count + 1")->execute([$input['development']]);
+}
+
         echo json_encode(['status' => 'success']);
+    } else {
+        // GET request para obtener las stats actuales
+        $stats = $pdo->query("SELECT page, count FROM counter_stats")->fetchAll(PDO::FETCH_KEY_PAIR);
+        $output = [
+            'visits' => (int)($stats['total_visits'] ?? 0),
+            'requests' => array_filter($stats, fn($key) => $key !== 'total_visits', ARRAY_FILTER_USE_KEY)
+        ];
+        echo json_encode($output);
     }
 } catch (Exception $e) {
     http_response_code(500);

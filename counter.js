@@ -20,100 +20,53 @@
   const pageName = decodeURIComponent(window.location.pathname.split("/").pop() || "")
     .replace(/\.html?$/i, "");
 
-  function displayCounts(data) {
-    if (!Number.isSafeInteger(data.visits) || !data.requests || typeof data.requests !== "object") {
-      throw new Error("La respuesta de contadores tiene un formato inválido.");
-    }
+  const API_URL = "api/guardar_prospecto.php";
 
+  // 1. Registrar visita automáticamente al cargar cualquier página
+  fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ event: "visit" })
+  }).then(r => r.json()).then(data => displayCounts(data));
+
+  // 2. Función para registrar clics de interés (solicitudes)
+  const registrarInteres = (development) => {
+    if (!development) return;
+    fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event: "request", development: development })
+    }).then(r => r.json()).then(data => displayCounts(data));
+  };
+
+  function displayCounts(data) {
+    if (!data) return;
     document.querySelectorAll("[data-site-visits]").forEach((element) => {
-      element.textContent = data.visits.toLocaleString("es-MX");
+      element.textContent = data.visits ? data.visits.toLocaleString("es-MX") : "0";
     });
 
     document.querySelectorAll("[data-request-count]").forEach((element) => {
-      const count = data.requests[element.dataset.requestCount];
-      element.textContent = Number.isSafeInteger(count)
-        ? count.toLocaleString("es-MX")
-        : "No disponible";
+      const dev = element.dataset.requestCount;
+      const count = data.requests && data.requests[dev] ? data.requests[dev] : 0;
+      element.textContent = count.toLocaleString("es-MX");
     });
   }
 
-  async function recordEvent(eventData) {
-    const response = await fetch(apiUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(eventData),
-      cache: "no-store",
-      keepalive: true
-    });
-
-    if (!response.ok) {
-      throw new Error(`El servidor de contadores respondió ${response.status}.`);
+  // 3. Detectar clics en botones de WhatsApp
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest(".whatsapp-link");
+    if (link && link.dataset.development) {
+      registrarInteres(link.dataset.development);
     }
-
-    displayCounts(await response.json());
-  }
-
-  function reportCounterError(message, error) {
-    document.querySelectorAll("[data-site-visits], [data-request-count]").forEach((element) => {
-      element.textContent = "—";
-      element.setAttribute("title", "No se pudo cargar la información en este momento.");
-    });
-    console.warn(`[Counter System] ${message}`, {
-      error: error instanceof Error ? error.message : error,
-      timestamp: new Date().toISOString()
-    });
-  }
-
-  recordEvent({ event: "visit" }).catch((error) => {
-    reportCounterError("No se pudo registrar la visita.", error);
   });
 
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest("a[href]");
-    if (!link) return;
-
-    let targetUrl;
-    try {
-      targetUrl = new URL(link.href, window.location.href);
-    } catch (error) {
-      console.error("No se pudo interpretar el enlace de solicitud.", error);
-      return;
-    }
-
-    if (targetUrl.hostname !== "wa.me") return;
-
-    const development = link.dataset.development || pageName;
-    if (!allowedDevelopments.has(development)) return;
-
-    recordEvent({ event: "request", development }).catch((error) => {
-      console.error("No se pudo registrar el clic de WhatsApp.", error);
+  // 4. Detectar clics en el menú de desarrollos
+  document.querySelectorAll(".dropdown a").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      // Extrae el nombre del desarrollo del texto del enlace
+      const devName = e.target.textContent.toLowerCase().trim().replace(/\s+/g, '-');
+      registrarInteres(devName);
     });
-  }, true);
-
-  const developmentOptions = {
-    "Solhá": "solha",
-    "Nexum82": "nexum82",
-    "Lakuun": "lakuun",
-    "Martell": "martell",
-    "Marela Life": "marela-life",
-    "Hacienda Ticopo Gutiérrez": "hacienda-ticopo-gutierrez",
-    "SUNO": "suno",
-    "Monarca": "monarca",
-    "Anthia Hunucmá": "anthia",
-    "Marela Celestún": "marela-celestun",
-    "Velamar": "velamar"
-  };
-
-  document.addEventListener("submit", (event) => {
-    if (event.target.id !== "contact-form") return;
-
-    const selectedDevelopment = new FormData(event.target).get("development");
-    const development = developmentOptions[selectedDevelopment];
-    if (!development) return;
-
-    recordEvent({ event: "request", development }).catch((error) => {
-      console.error("No se pudo registrar la solicitud del formulario.", error);
-    });
-  }, true);
+  });
 })();
 
