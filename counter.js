@@ -55,9 +55,13 @@
 
   function reportCounterError(message, error) {
     document.querySelectorAll("[data-site-visits], [data-request-count]").forEach((element) => {
-      element.textContent = "No disponible";
+      element.textContent = "—";
+      element.setAttribute("title", "No se pudo cargar la información en este momento.");
     });
-    console.error(message, error);
+    console.warn(`[Counter System] ${message}`, {
+      error: error instanceof Error ? error.message : error,
+      timestamp: new Date().toISOString()
+    });
   }
 
   recordEvent({ event: "visit" }).catch((error) => {
@@ -112,3 +116,4 @@
     });
   }, true);
 })();
+
