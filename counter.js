@@ -3,12 +3,30 @@
   const pageName = decodeURIComponent(window.location.pathname.split("/").pop() || "index")
     .replace(/\.html?$/i, "") || "index";
 
+  const reportError = (error) => {
+    document.querySelectorAll("[data-site-visits], [data-page-visits], [data-request-count], [data-most-requested]")
+      .forEach((element) => { element.textContent = "No disponible"; });
+    console.error("No se pudo actualizar las estadísticas de visitas.", error);
+  };
+
   const sendEvent = (event, values = {}) => fetch(apiUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ event, ...values }),
+    cache: "no-store",
     keepalive: true
-  }).then((response) => response.ok ? response.json() : null).then(displayCounts).catch(() => {});
+  }).then((response) => {
+    if (!response.ok) throw new Error(`El servidor respondió ${response.status}.`);
+    return response.json();
+  }).then(displayCounts).catch(reportError);
+
+  const refreshCounts = () => fetch(apiUrl, { cache: "no-store" })
+    .then((response) => {
+      if (!response.ok) throw new Error(`El servidor respondió ${response.status}.`);
+      return response.json();
+    })
+    .then(displayCounts)
+    .catch(reportError);
 
   function displayCounts(data) {
     if (!data) return;
@@ -29,6 +47,11 @@
 
   // Cada carga de página suma una visita total y otra para la página correspondiente.
   sendEvent("visit", { page: pageName });
+
+  // Actualizar la cifra mientras la página permanece abierta sin contar otra visita.
+  window.setInterval(() => {
+    if (!document.hidden) refreshCounts();
+  }, 30000);
 
   document.addEventListener("click", (event) => {
     const link = event.target.closest(".whatsapp-link");
