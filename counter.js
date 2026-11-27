@@ -43,6 +43,16 @@
       const top = data.most_requested_development;
       element.textContent = top ? `${top.development} (${Number(top.count).toLocaleString("es-MX")} solicitudes)` : "Sin solicitudes registradas";
     });
+    document.querySelectorAll("[data-most-visited]").forEach((element) => {
+      const top = data.most_visited_development;
+      const names = {
+        solha: "Solhá", nexum82: "Nexum82", lakuun: "Lakuun", martell: "Martell",
+        "marela-life": "Marela Life", "hacienda-ticopo-gutierrez": "Hacienda Ticopó Gutiérrez",
+        suno: "SUNO", monarca: "Monarca", anthia: "Anthia",
+        "marela-celestun": "Marela Celestún", velamar: "Velamar"
+      };
+      element.textContent = top ? `${names[top.development] || top.development} (${Number(top.count).toLocaleString("es-MX")} visitas)` : "Sin visitas registradas";
+    });
   }
 
   // Cada carga de página suma una visita total y otra para la página correspondiente.

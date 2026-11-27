@@ -68,11 +68,19 @@ try {
     arsort($requests);
     $topRequest = $requests ? ['development' => (string)array_key_first($requests), 'count' => (int)reset($requests)] : null;
 
+    $developmentPages = ['solha', 'nexum82', 'lakuun', 'martell', 'marela-life', 'hacienda-ticopo-gutierrez', 'suno', 'monarca', 'anthia', 'marela-celestun', 'velamar'];
+    $developmentVisits = array_intersect_key($pageVisits, array_flip($developmentPages));
+    arsort($developmentVisits);
+    $topVisited = $developmentVisits
+        ? ['development' => (string)array_key_first($developmentVisits), 'count' => (int)reset($developmentVisits)]
+        : null;
+
     echo json_encode([
         'visits' => (int)($stats['total_visits'] ?? 0),
         'page_visits' => $pageVisits,
         'requests' => $requests,
         'most_requested_development' => $topRequest,
+        'most_visited_development' => $topVisited,
         'note' => 'Las solicitudes miden interés; para identificar ventas se deben registrar las operaciones cerradas.',
     ], JSON_UNESCAPED_UNICODE);
 } catch (Exception $e) {
