@@ -20,6 +20,9 @@
     input,select { width:100%; padding:11px 12px; border:1px solid #bdc9c4; border-radius:8px; font:inherit; color:var(--ink); background:#fff; }
     button { padding:11px 18px; border:0; border-radius:8px; background:var(--green); color:white; font:inherit; font-weight:700; cursor:pointer; }
     .secondary { background:transparent; border:1px solid #ffffff88; } .topline { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .danger-button { background:#9b302b; } .danger-button:hover { background:#7f241f; }
+    .visit-reset-tools { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+    .visit-reset-tools .muted { margin:0; font-size:.9rem; }
     .account-tools { position:fixed; right:24px; bottom:18px; z-index:5; display:flex; justify-content:flex-end; padding:6px; border:1px solid var(--line); border-radius:10px; background:rgba(247,248,245,.96); box-shadow:0 4px 18px #17262518; }
     .quiet-button { padding:6px 10px; color:#687472; background:transparent; font-size:.82rem; font-weight:400; text-decoration:underline; text-underline-offset:3px; }
     @media(max-width:600px) { .account-tools { right:12px; bottom:12px; } }
@@ -51,7 +54,7 @@
     </section>
     <section id="dashboard" hidden>
       <div class="panel topline"><div><div class="muted">Visitas totales</div><div class="metric" id="total-visits">0</div></div><button class="secondary" id="logout-button" type="button">Cerrar sesión</button></div>
-      <section class="panel"><h2>Visitas por página</h2><p class="muted">Se actualiza automáticamente cada 30 segundos.</p><div class="table-wrap"><table><thead><tr><th>Página</th><th>Visitas</th></tr></thead><tbody id="visits-body"></tbody></table></div></section>
+      <section class="panel"><h2>Visitas por página</h2><p class="muted">Se actualiza automáticamente cada 30 segundos.</p><div class="table-wrap"><table><thead><tr><th>Página</th><th>Visitas</th></tr></thead><tbody id="visits-body"></tbody></table></div><div class="visit-reset-tools"><p class="muted">Reinicia los contadores de visitas de todas las páginas. No modifica solicitudes ni ventas.</p><button class="danger-button" id="reset-visits-button" type="button">Borrar todas las visitas</button></div><p class="status" id="visits-status" role="status" aria-live="polite"></p></section>
       <section class="panel"><h2>Registrar venta cerrada</h2><p class="muted">Registra unidades vendidas para consultar cuál desarrollo lleva más ventas.</p>
         <form id="sale-form"><label>Desarrollo<select name="development" required></select></label>
           <label>Unidades vendidas<input name="units" type="number" min="1" max="100000" value="1" required></label>
@@ -75,6 +78,8 @@
       const cancelPasswordChange = document.querySelector('#cancel-password-change');
       let mustChangePassword = false, passwordPanelOpen = false;
       const saleForm = document.querySelector('#sale-form'), saleStatus = document.querySelector('#sale-status');
+      const resetVisitsButton = document.querySelector('#reset-visits-button');
+      const visitsStatus = document.querySelector('#visits-status');
       let csrf = '';
       const names = {solha:'Solhá',nexum82:'Nexum82',lakuun:'Lakuun',martell:'Martell','marela-life':'Marela Life','hacienda-ticopo-gutierrez':'Hacienda Ticopó Gutiérrez',suno:'SUNO',monarca:'Monarca',anthia:'Anthia','marela-celestun':'Marela Celestún',velamar:'Velamar','lote-telchac':'Lote Telchac','terreno-dzoyola':'Terreno Dzoyolá','lote-220-ciudad-central-progreso':'Lote 220 · Ciudad Central Progreso'};
       const count = value => Number(value || 0).toLocaleString('es-MX');
@@ -137,6 +142,16 @@
       });
       cancelPasswordChange.addEventListener('click',async()=>{
         passwordPanelOpen=false; changeForm.reset(); passwordStatus.textContent=''; await refresh();
+      });
+      resetVisitsButton.addEventListener('click',async()=>{
+        if (!window.confirm('¿Seguro que quieres borrar los contadores de visitas de todas las páginas? Esta acción no se puede deshacer.')) return;
+        resetVisitsButton.disabled=true; visitsStatus.style.color=''; visitsStatus.textContent='Reiniciando visitas...';
+        try {
+          await request(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'reset_visits',csrf})});
+          visitsStatus.style.color='#17633d'; visitsStatus.textContent='Las visitas se reiniciaron. Los próximos accesos comenzarán a contarse desde cero.';
+          await refresh();
+        } catch(error) { visitsStatus.style.color=''; visitsStatus.textContent=error.message; }
+        finally { resetVisitsButton.disabled=false; }
       });
       saleForm.addEventListener('submit',async event=>{
         event.preventDefault(); saleStatus.textContent=''; const values=Object.fromEntries(new FormData(saleForm));

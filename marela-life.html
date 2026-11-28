@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#102a2a">
-  <meta name="description" content="Descubre Marela Life en Celestún, Yucatán: lotes residenciales, casa club y acceso al club de playa mediante membresía. Información de Tierra Yucatán.">
-  <title>Marela Life | Lotes residenciales en Celestún</title>
+  <meta name="description" content="Descubre Marela Life en Celestún: lotes residenciales cerca del mar, casa club, club de playa y disponibilidad con Tierra Yuc.">
+  <title>Marela Life en Celestún | Lotes cerca del mar</title>
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://www.tierrayuc.mx/marela-life.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Tierra Yucatán">
-  <meta property="og:title" content="Marela Life | Lotes residenciales en Celestún">
-  <meta property="og:description" content="Descubre Marela Life en Celestún, Yucatán: lotes residenciales, casa club y acceso al club de playa mediante membresía. Información de Tierra Yucatán.">
+  <meta property="og:title" content="Marela Life en Celestún | Lotes cerca del mar">
+  <meta property="og:description" content="Descubre Marela Life en Celestún: lotes residenciales cerca del mar, casa club, club de playa y disponibilidad con Tierra Yuc.">
   <meta property="og:url" content="https://www.tierrayuc.mx/marela-life.html">
-  <meta property="og:image" content="https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg">
+  <meta property="og:image" content="https://www.tierrayuc.mx/desarrollosparacadaplan/portadas/marela%20life.jpg">
   <meta property="og:image:alt" content="Desarrollos inmobiliarios y propiedades en Yucatán">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Marela Life | Lotes residenciales en Celestún">
-  <meta name="twitter:description" content="Descubre Marela Life en Celestún, Yucatán: lotes residenciales, casa club y acceso al club de playa mediante membresía. Información de Tierra Yucatán.">
-  <meta name="twitter:image" content="https://www.tierrayuc.mx/img/hero-desarrollo.jpg.jpg">
+  <meta name="twitter:title" content="Marela Life en Celestún | Lotes cerca del mar">
+  <meta name="twitter:description" content="Descubre Marela Life en Celestún: lotes residenciales cerca del mar, casa club, club de playa y disponibilidad con Tierra Yuc.">
+  <meta name="twitter:image" content="https://www.tierrayuc.mx/desarrollosparacadaplan/portadas/marela%20life.jpg">
   <style>
     :root {
       --ink: #172625;
@@ -179,7 +179,7 @@
 
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: min(760px, 100%);
       padding: 100px 0;
     }
@@ -796,7 +796,24 @@
     .simple-page-action--primary{border-color:#e0c58f;background:#e0c58f;color:#172625}
     .simple-page-action--primary:hover{background:#edd8ac}
     @media(max-width:640px){.simple-page-nav{width:calc(100% - 28px);min-height:76px;gap:10px}.simple-page-brand{gap:8px}.simple-page-brand img{width:34px;height:46px}.simple-page-brand strong{font-size:.8rem}.simple-page-brand small{font-size:.43rem;letter-spacing:.04em}.simple-page-actions{gap:6px}.simple-page-action{min-height:38px;padding:7px 9px;font-size:.72rem}}    .simple-page-action.simple-page-action--primary{padding:10px 16px;border:1px solid rgba(195,163,106,.75);border-radius:999px;background:transparent;color:#fff;font-size:.78rem;font-weight:700;white-space:nowrap;transition:background .2s ease}
-    .simple-page-action.simple-page-action--primary:hover{background:rgba(195,163,106,.15)}</style>
+    .simple-page-action.simple-page-action--primary:hover{background:rgba(195,163,106,.15)}
+
+    .hero-image { z-index:0; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 55%; opacity:.42; }
+    .hero::before { z-index:1; right:0; bottom:0; width:100%; height:100%; aspect-ratio:auto; border:0; border-radius:0; background:linear-gradient(90deg,rgba(9,31,29,.96) 0%,rgba(13,45,41,.82) 48%,rgba(11,39,37,.28) 100%); }
+    .hero::after { display:none; }
+    .availability-panel { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr); gap:28px; align-items:center; padding:24px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; box-shadow:var(--shadow); }
+    .availability-panel img { display:block; width:100%; border-radius:12px; }
+    .availability-copy h3 { font-size:1.8rem; line-height:1.15; }
+    .availability-copy p { margin-top:14px; color:var(--gray); }
+    .availability-note { margin-top:18px; padding:14px 16px; border-left:3px solid var(--gold); background:var(--cream); color:#52605d; font-size:.85rem; }
+    .media-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .media-card { overflow:hidden; border:1px solid var(--line); border-radius:var(--radius); background:#fff; box-shadow:0 8px 26px rgba(23,38,37,.05); }
+    .media-card video { display:block; width:100%; aspect-ratio:16/9; background:#102a2a; object-fit:cover; }
+    .media-card div { padding:18px 20px 20px; }
+    .media-card h3 { font-size:1.35rem; }
+    .media-card p { margin-top:6px; color:var(--gray); font-size:.88rem; }
+    @media(max-width:760px) { .availability-panel,.media-grid { grid-template-columns:1fr; } .availability-panel { padding:14px; } }
+  </style>
 </head>
 
 <body>
@@ -816,16 +833,15 @@
       <div class="container">
         <div class="hero-content">
           <span class="eyebrow">Celestún · Costa Esmeralda · Yucatán</span>
-          <h1>Marela Life, a una cuadra de <em>la tranquilidad del mar.</em></h1>
+          <h1>Tu espacio en Celestún, <em>cerca del mar.</em></h1>
           <p class="hero-copy">
-            Terrenos residenciales con casa club y una propuesta de vida entre
-            naturaleza, costa y espacios para disfrutar como en un resort.
+            Lotes residenciales para crear una casa de descanso o un patrimonio en la costa yucateca, con espacios para convivir y disfrutar la naturaleza de Celestún.
           </p>
           <div class="hero-actions">
             <a class="button" href="#proyecto">Conocer el proyecto <span aria-hidden="true">↓</span></a>
             <a class="button button--light" href="#amenidades">Ver amenidades ↗</a>
           </div>
-          <p class="hero-note">El brochure presenta el acceso al club de playa mediante membresía.</p>
+          <p class="hero-note">Solicita el plano vigente, precios y condiciones de membresía a un asesor.</p>
         </div>
       </div>
     </section>
@@ -854,7 +870,7 @@
             <p>
               El folleto describe Celestún como un destino ecoturístico para disfrutar
               de la naturaleza y escapar del ritmo de la ciudad. Presenta Marela Life
-              como una alternative para construir un hogar y convivir en un entorno
+              como una alternativa para construir un hogar y convivir en un entorno
               residencial.
             </p>
             <p>
@@ -939,8 +955,8 @@
             <h2>Celestún, un destino de naturaleza y costa.</h2>
             <p>
 
-              El mapa del brochure shows rutas regionales que conectan Celestún con
-              Mérida y localidades como Hunucmá, Kinchil, Tetíz, Caucel, Pregreso y Sisal.
+              Celestún combina costa y naturaleza en el litoral poniente de Yucatán.
+              Solicita la ubicación exacta y la ruta actualizada para organizar una visita.
             </p>
             <div class="location-tags" aria-label="Referencias de ubicación del brochure">
               <span>Celestún</span>
@@ -952,10 +968,46 @@
             </div>
           </div>
           <div class="route-list" aria-label="Vías de acceso referidas en el brochure">
-            <div class="route"><strong>Carretera Mérida–Tetíz</strong>Ruta regional indicada en el mapa.</div>
-            <div class="route"><strong>Carretera Kinchil–Celestún</strong>Conexión hacia la costa señalada en el folleto.</div>
-            <div class="route"><strong>Camino Mérida–Celestún</strong>Acceso regional mencionado en el mapa.</div>
+            <div class="route"><strong>Desde Mérida</strong>Solicita al asesor la ruta vigente y el tiempo estimado de traslado.</div>
+            <div class="route"><strong>Acceso a Celestún</strong>El video de llegada muestra el recorrido de referencia hacia el desarrollo.</div>
+            <div class="route"><strong>Entorno costero</strong>Conoce el paisaje natural que distingue esta zona de la costa yucateca.</div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="disponibilidad">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Lotes y disponibilidad</span>
+          <h2>Encuentra el lote que se adapta a tu proyecto.</h2>
+          <p>Consulta el plano de lotificación de Marela Life y pide al equipo comercial el inventario vigente, precios y condiciones de apartado.</p>
+        </div>
+        <div class="availability-panel">
+          <img src="desarrollosparacadaplan/marela-life/disponibilidad-marela-life.jpg" alt="Plano de lotificación y referencia de disponibilidad de Marela Life en Celestún">
+          <div class="availability-copy">
+            <span class="club-label">Consulta personalizada</span>
+            <h3>Revisa opciones antes de elegir.</h3>
+            <p>El plano ayuda a ubicar los lotes por número dentro del desarrollo. La disponibilidad puede cambiar conforme se apartan o venden terrenos; solicita confirmación del lote, superficie, precio y forma de pago antes de tomar una decisión.</p>
+            <p class="availability-note">Los colores del plano se muestran tal como fueron proporcionados; al no incluir una leyenda, no se asigna aquí un significado de venta o apartado. El asesor puede confirmar el estatus actualizado de cada lote.</p>
+            <a class="button" href="index.html#contactos">Solicitar disponibilidad <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="videos">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Conoce Marela Life</span>
+          <h2>Recorre el proyecto y su entorno.</h2>
+          <p>Videos de referencia para conocer la lotificación, la casa club, el acceso y el paisaje costero.</p>
+        </div>
+        <div class="media-grid">
+          <article class="media-card"><video controls playsinline preload="metadata" poster="desarrollosparacadaplan/portadas/marela%20life.jpg"><source src="desarrollosparacadaplan/marela-life/recorrido-lotificacion-marela-life.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div><h3>Recorrido de lotificación</h3><p>Visualiza la distribución de los lotes y las vialidades del desarrollo.</p></div></article>
+          <article class="media-card"><video controls playsinline preload="metadata" poster="desarrollosparacadaplan/portadas/marela%20life.jpg"><source src="desarrollosparacadaplan/marela-life/casa-club-marela-life.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div><h3>Casa club</h3><p>Conoce los espacios comunes presentados para Marela Life.</p></div></article>
+          <article class="media-card"><video controls playsinline preload="metadata" poster="desarrollosparacadaplan/portadas/marela%20life.jpg"><source src="desarrollosparacadaplan/marela-life/mar-de-celestun.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div><h3>El mar de Celestún</h3><p>Una mirada al paisaje natural que acompaña la vida en la costa.</p></div></article>
+          <article class="media-card"><video controls playsinline preload="metadata" poster="desarrollosparacadaplan/portadas/marela%20life.jpg"><source src="desarrollosparacadaplan/marela-life/ruta-de-llegada-marela-life.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div><h3>Ruta de llegada</h3><p>Explora el trayecto de referencia hacia el desarrollo.</p></div></article>
         </div>
       </div>
     </section>
@@ -990,7 +1042,7 @@
 
 
 
-        <p class="hero-note">El brochure presenta el acceso al club de playa mediante membresía.</p>
+        <p class="hero-note">Solicita el plano vigente, precios y condiciones de membresía a un asesor.</p>
       </div>
     </section>
 

@@ -179,6 +179,12 @@ try {
         $stmt->execute([$development, $units, $soldOn, (int)$_SESSION['admin_id']]);
         adminRespond(200, ['saved'=>true, 'csrf'=>adminCsrf()]);
     }
+    if ($action === 'reset_visits') {
+        if (!isset($_SESSION['admin_id'])) adminRespond(401, ['error'=>'Inicia sesión para continuar.']);
+        if (!empty($_SESSION['admin_must_change_password'])) adminRespond(403, ['error'=>'Cambia la contraseña inicial antes de continuar.']);
+        $pdo->exec("UPDATE counter_stats SET count = 0 WHERE page = 'total_visits' OR page LIKE 'visit:%'");
+        adminRespond(200, ['reset'=>true, 'csrf'=>adminCsrf()]);
+    }
     if ($action === 'change_password') {
         if (!isset($_SESSION['admin_id'])) adminRespond(401, ['error'=>'Inicia sesión para continuar.']);
         $newPassword = (string)($input['new_password'] ?? '');

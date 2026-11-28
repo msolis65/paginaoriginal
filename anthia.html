@@ -154,7 +154,7 @@
       }
       .nav-links.is-open { display: flex; }
     }
-  
+
     .brand { display:inline-flex; align-items:center; gap:10px; flex-shrink:0; min-width:0; padding:0; }
     .brand-logo { display:block; width:42px; height:56px; flex-shrink:0; object-fit:contain; }
     .brand-copy { display:flex; min-width:0; flex-direction:column; gap:3px; white-space:nowrap; }
@@ -179,7 +179,25 @@
     .simple-page-action--primary{border-color:#e0c58f;background:#e0c58f;color:#172625}
     .simple-page-action--primary:hover{background:#edd8ac}
     @media(max-width:640px){.simple-page-nav{width:calc(100% - 28px);min-height:76px;gap:10px}.simple-page-brand{gap:8px}.simple-page-brand img{width:34px;height:46px}.simple-page-brand strong{font-size:.8rem}.simple-page-brand small{font-size:.43rem;letter-spacing:.04em}.simple-page-actions{gap:6px}.simple-page-action{min-height:38px;padding:7px 9px;font-size:.72rem}}    .simple-page-action.simple-page-action--primary{padding:10px 16px;border:1px solid rgba(195,163,106,.75);border-radius:999px;background:transparent;color:#fff;font-size:.78rem;font-weight:700;white-space:nowrap;transition:background .2s ease}
-    .simple-page-action.simple-page-action--primary:hover{background:rgba(195,163,106,.15)}</style>
+    .simple-page-action.simple-page-action--primary:hover{background:rgba(195,163,106,.15)}
+    .hero-media { z-index:-1; position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; opacity:.43; }
+    .hero { isolation:isolate; }
+    #inicio.hero::before { content:""; position:absolute; inset:0; z-index:0; right:auto; bottom:auto; width:auto; height:auto; border:0; border-radius:0; background:linear-gradient(90deg,rgba(10,24,23,.86),rgba(10,24,23,.58) 60%,rgba(10,24,23,.18)); pointer-events:none; }
+    .hero::before { z-index:0; }
+    .hero::after { z-index:0; pointer-events:none; }
+    .hero-content { position:relative; z-index:2; }
+    .project-media-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; align-items:stretch; }
+    .project-media-card { overflow:hidden; border:1px solid var(--line,#e4e8e4); border-radius:18px; background:#fff; box-shadow:0 10px 30px rgba(20,38,35,.07); }
+    .project-media-card img { display:block; width:100%; max-height:620px; aspect-ratio:16/10; object-fit:contain; background:#f3f4f0; }
+    .project-media-card video { display:block; width:100%; max-width:100%; aspect-ratio:16/9; object-fit:contain; background:#102a2a; }
+    .project-media-copy { padding:18px 20px 22px; }
+    .project-media-copy h3 { font-size:1.35rem; line-height:1.2; }
+    .project-media-copy p { margin-top:8px; color:var(--gray,#687472); font-size:.9rem; }
+    .project-media-copy .button { margin-top:16px; }
+    .project-media-caveat { margin-top:14px; padding:12px 14px; border-left:3px solid var(--gold,#c3a36a); background:var(--cream,#f7f6f2); color:var(--gray,#687472); font-size:.82rem; }
+    @media(max-width:720px) { .project-media-grid { grid-template-columns:1fr; } .project-media-card img { max-height:500px; } }
+    video { max-width:100%; object-fit:contain; }
+  </style>
 </head>
 
 <body>
@@ -194,7 +212,7 @@
 </header>
 
   <main>
-    <section class="hero" id="inicio">
+    <section class="hero" id="inicio"><img class="hero-media" src="desarrollosparacadaplan/anthia/anthia-portada.jpg" alt="" fetchpriority="high">
       <div class="container">
         <div class="hero-content">
           <span class="eyebrow">Anthia · Hunucmá, Yucatán</span>
@@ -205,7 +223,7 @@
           </p>
           <div class="hero-actions">
             <a class="button" href="#proyecto">Conocer Anthia <span aria-hidden="true">↓</span></a>
-            <a class="button button--light" href="pdf/BROCHURE%20ANTHIA%205.pdf" target="_blank" rel="noopener">Ver brochure oficial ↗</a>
+            <a class="button button--light" href="index.html#contactos">Ver brochure oficial ↗</a>
           </div>
           <p class="hero-note">Hunucmá te regala un momento; Anthia te obsequia una oportunidad.</p>
         </div>
@@ -286,20 +304,22 @@
       <div class="container brochure-panel">
         <div>
           <span class="eyebrow">Información oficial</span>
-          <h2>Consulta el brochure completo de Anthia.</h2>
+          <h2>Solicita la informaci&oacute;n y disponibilidad vigente de Anthia.</h2>
           <p>
             El PDF presenta el concepto del proyecto, su identidad visual y las
             referencias comerciales disponibles.
           </p>
         </div>
         <div class="brochure-actions">
-          <a class="button" href="pdf/BROCHURE%20ANTHIA%205.pdf" target="_blank" rel="noopener">Abrir brochure PDF ↗</a>
+          <a class="button" href="index.html#contactos">Abrir brochure PDF ↗</a>
           <a class="button" href="index.html#contactos">Solicitar informes&nbsp; &#8599;</a>
         </div>
       </div>
     </section>
 
-    <section class="cta" id="contacto">
+
+    <section class="section section--soft" id="material-comercial"><div class="container"><div class="section-heading"><span class="eyebrow">Proyecto e inventario</span><h2>Conoce los espacios y revisa las opciones vigentes.</h2><p>Im&aacute;genes y videos de referencia para ayudarte a conocer el desarrollo. Pide al equipo comercial la informaci&oacute;n actualizada antes de apartar.</p></div><div class="project-media-grid"><article class="project-media-card"><a href="desarrollosparacadaplan/anthia/anthia-disponibilidad-etapa-5.jpg" target="_blank" rel="noopener"><img src="desarrollosparacadaplan/anthia/anthia-disponibilidad-etapa-5.jpg" alt="Plano de lotificación Anthia, etapa 5" loading="lazy"></a><div class="project-media-copy"><span class="eyebrow">Disponibilidad</span><h3>Anthia &middot; Etapa 5</h3><p>Terrenos residenciales en Hunucmá. Revisa el plano de la etapa 5 y confirma con un asesor qué lotes siguen disponibles.</p><p class="project-media-caveat">El plano proporcionado no incluye una leyenda de colores ni fecha de actualización; confirma lote, superficie y estatus actual con el equipo comercial.</p><a class="button" href="index.html#contactos">Solicitar disponibilidad <span aria-hidden="true">&#8599;</span></a></div></article><article class="project-media-card"><video controls playsinline preload="none" poster="desarrollosparacadaplan/anthia/anthia-portada.jpg" aria-label="Recorrido de Anthia"><source src="desarrollosparacadaplan/anthia/anthia-recorrido.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div class="project-media-copy"><h3>Recorrido de Anthia</h3><p>Video de referencia del desarrollo.</p></div></article></div></div></section>
+<section class="cta" id="contacto">
       <div class="container cta-inner">
         <div>
           <span class="eyebrow">Más información</span>
@@ -307,7 +327,7 @@
         </div>
         <div class="cta-actions">
           <a class="button" href="index.html#contactos">Solicitar informes ↗</a>
-          <a class="button button--light" href="pdf/BROCHURE%20ANTHIA%205.pdf" target="_blank" rel="noopener">Ver brochure oficial ↗</a>
+          <a class="button button--light" href="index.html#contactos">Ver brochure oficial ↗</a>
         </div>
       </div>
     </section>

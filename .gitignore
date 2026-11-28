@@ -1,1 +1,18 @@
 /api/config.local.php
+
+# Large video media; keep source files locally, out of Git commits.
+*.mp4
+
+# Internal reference documents and source material.
+/pdf/
+
+# Temporary working files and directories.
+/tmp/
+/temp/
+**/tmp/
+**/temp/
+**/.tmp/
+**/tmp-*/
+**/temp-*/
+*.tmp
+*.temp
