@@ -211,5 +211,6 @@
     const cards=document.querySelectorAll('.property-card');
     filterButtons.forEach(button=>button.addEventListener('click',()=>{const selected=button.dataset.filter;filterButtons.forEach(item=>{const active=item===button;item.classList.toggle('active',active);item.setAttribute('aria-pressed',String(active));});cards.forEach(card=>{card.hidden=selected!=='todos'&&card.dataset.category!==selected;});}));
   </script>
+  <script src="image-viewer.js?v=20261128" defer></script>
 </body>
 </html>
