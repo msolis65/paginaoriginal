@@ -1,14 +1,11 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
-
-$host = 'localhost';
-$db = 'u194586287_tierrayuc';
-$user = 'u194586287_tierrayuc';
-$pass = 'Mjsh1965$';
+require_once __DIR__ . '/config.php';
 
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8mb4", $user, $pass, [
+    if ($appConfig['dsn'] === '' || $appConfig['dbUser'] === '') throw new RuntimeException('Database configuration missing.');
+    $pdo = new PDO($appConfig['dsn'], $appConfig['dbUser'], $appConfig['dbPassword'], [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     ]);
     $pdo->exec("CREATE TABLE IF NOT EXISTS counter_stats (

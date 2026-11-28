@@ -5,6 +5,7 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 header('X-Content-Type-Options: nosniff');
 header('Referrer-Policy: no-referrer');
+require_once __DIR__ . '/config.php';
 
 const CUSTOMER_SESSION_TTL = 2592000;
 
@@ -36,18 +37,19 @@ function envValue(string $name): string
 
 function loadConfig(): array
 {
+    global $appConfig;
     $config = [
-        'dsn' => envValue('DB_DSN'),
-        'dbUser' => envValue('DB_USER'),
-        'dbPassword' => envValue('DB_PASSWORD'),
-        'otpPepper' => envValue('APP_OTP_PEPPER'),
-        'graphVersion' => envValue('WHATSAPP_GRAPH_API_VERSION'),
-        'phoneNumberId' => envValue('WHATSAPP_PHONE_NUMBER_ID'),
-        'accessToken' => envValue('WHATSAPP_ACCESS_TOKEN'),
-        'templateName' => envValue('WHATSAPP_OTP_TEMPLATE_NAME'),
-        'templateLanguage' => envValue('WHATSAPP_OTP_TEMPLATE_LANGUAGE'),
-        'allowedOrigins' => envValue('APP_ALLOWED_ORIGINS'),
-        'environment' => envValue('APP_ENV'),
+        'dsn' => $appConfig['dsn'],
+        'dbUser' => $appConfig['dbUser'],
+        'dbPassword' => $appConfig['dbPassword'],
+        'otpPepper' => $appConfig['APP_OTP_PEPPER'],
+        'graphVersion' => $appConfig['WHATSAPP_GRAPH_API_VERSION'],
+        'phoneNumberId' => $appConfig['WHATSAPP_PHONE_NUMBER_ID'],
+        'accessToken' => $appConfig['WHATSAPP_ACCESS_TOKEN'],
+        'templateName' => $appConfig['WHATSAPP_OTP_TEMPLATE_NAME'],
+        'templateLanguage' => $appConfig['WHATSAPP_OTP_TEMPLATE_LANGUAGE'],
+        'allowedOrigins' => $appConfig['APP_ALLOWED_ORIGINS'],
+        'environment' => $appConfig['APP_ENV'],
     ];
 
     $config['ready'] =
@@ -132,6 +134,8 @@ function requireAllowedOrigin(array $config): void
         : ['https://www.tierrayuc.mx', 'https://tierrayuc.mx'];
 
     if (isLocalDevelopment($config)) {
+        $allowed[] = 'http://localhost';
+        $allowed[] = 'http://127.0.0.1';
         $allowed[] = 'http://localhost:8000';
         $allowed[] = 'http://127.0.0.1:8000';
     }

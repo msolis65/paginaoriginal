@@ -49,7 +49,8 @@
         solha: "Solhá", nexum82: "Nexum82", lakuun: "Lakuun", martell: "Martell",
         "marela-life": "Marela Life", "hacienda-ticopo-gutierrez": "Hacienda Ticopó Gutiérrez",
         suno: "SUNO", monarca: "Monarca", anthia: "Anthia",
-        "marela-celestun": "Marela Celestún", velamar: "Velamar"
+        "marela-celestun": "Marela Celestún", velamar: "Velamar",
+        "lote-220-ciudad-central-progreso": "Lote 220 · Ciudad Central Progreso"
       };
       element.textContent = top ? `${names[top.development] || top.development} (${Number(top.count).toLocaleString("es-MX")} visitas)` : "Sin visitas registradas";
     });

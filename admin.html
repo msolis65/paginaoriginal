@@ -9,12 +9,20 @@
     :root { --ink:#172625; --green:#173c38; --muted:#687472; --line:#dce3df; --paper:#f7f8f5; }
     * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.5 Arial,sans-serif; }
     header { background:var(--green); color:#fff; padding:22px max(20px, calc((100vw - 1100px)/2)); display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .admin-brand { display:flex; align-items:center; gap:10px; color:#fff; text-decoration:none; }
+    .admin-brand img { width:40px; height:54px; object-fit:contain; }
+    .admin-brand span { display:flex; flex-direction:column; white-space:nowrap; }
+    .admin-brand strong { font-family:Georgia,"Times New Roman",serif; font-size:.95rem; }
+    .admin-brand small { color:#e0c58f; font-size:.52rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; }
     h1 { margin:0; font-size:1.5rem; } h2 { font-size:1.25rem; margin:0 0 16px; }
     main { width:min(1100px, calc(100% - 32px)); margin:36px auto; } .panel { padding:24px; margin:20px 0; background:#fff; border:1px solid var(--line); border-radius:14px; box-shadow:0 6px 24px #1726250a; }
     form { display:grid; gap:14px; max-width:560px; } label { display:grid; gap:6px; font-weight:700; }
     input,select { width:100%; padding:11px 12px; border:1px solid #bdc9c4; border-radius:8px; font:inherit; color:var(--ink); background:#fff; }
     button { padding:11px 18px; border:0; border-radius:8px; background:var(--green); color:white; font:inherit; font-weight:700; cursor:pointer; }
     .secondary { background:transparent; border:1px solid #ffffff88; } .topline { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+    .account-tools { position:fixed; right:24px; bottom:18px; z-index:5; display:flex; justify-content:flex-end; padding:6px; border:1px solid var(--line); border-radius:10px; background:rgba(247,248,245,.96); box-shadow:0 4px 18px #17262518; }
+    .quiet-button { padding:6px 10px; color:#687472; background:transparent; font-size:.82rem; font-weight:400; text-decoration:underline; text-underline-offset:3px; }
+    @media(max-width:600px) { .account-tools { right:12px; bottom:12px; } }
     .metric { font-size:1.7rem; font-weight:700; color:var(--green); } .muted { color:var(--muted); } .status { min-height:1.5em; color:#9c2929; }
     [hidden] { display:none !important; } .table-wrap { overflow-x:auto; } table { width:100%; border-collapse:collapse; text-align:left; }
     th,td { padding:12px 10px; border-bottom:1px solid var(--line); } th:last-child,td:last-child { text-align:right; font-variant-numeric:tabular-nums; }
@@ -22,7 +30,7 @@
   </style>
 </head>
 <body>
-  <header><h1>Panel de administración</h1><a href="index.html">Volver al sitio</a></header>
+  <header><a class="admin-brand" href="index.html" aria-label="Tierra Yuc. Desarrollos Real Estate"><img src="logos/tierrayuc.jpg" alt=""><span><strong>Tierra Yuc.</strong><small>Desarrollos Real Estate</small></span></a><h1>Panel de administración</h1><a href="index.html">Volver al sitio</a></header>
   <main>
     <section id="login-panel" class="panel" aria-labelledby="login-title">
       <h2 id="login-title">Iniciar sesión</h2><p class="muted">Acceso exclusivo para administradores.</p>
@@ -33,12 +41,12 @@
       </form>
     </section>
     <section id="change-password-panel" class="panel" hidden>
-      <div class="topline"><div><h2>Crea tu contraseña personal</h2><p class="muted">La contraseña inicial es admin. Cámbiala para proteger el panel y continuar.</p></div><button class="secondary" id="logout-initial" type="button">Cerrar sesión</button></div>
+      <div class="topline"><div><h2>Cambiar contraseña</h2><p class="muted">Confirma tu contraseña actual y elige una nueva para tu cuenta.</p></div><button class="secondary" id="logout-initial" type="button">Cerrar sesión</button></div>
       <form id="change-password-form">
         <label>Contraseña actual<input name="current_password" type="password" autocomplete="current-password" required></label>
-        <label>Nueva contraseña (mínimo 12 caracteres)<input name="new_password" type="password" autocomplete="new-password" minlength="12" required></label>
-        <label>Confirmar nueva contraseña<input name="confirm_password" type="password" autocomplete="new-password" minlength="12" required></label>
-        <button type="submit">Cambiar contraseña</button><p class="status" id="password-status" role="status" aria-live="polite"></p>
+        <label>Nueva contraseña (8 a 13 caracteres; incluye mayúscula, número y símbolo)<input name="new_password" type="password" autocomplete="new-password" minlength="8" maxlength="13" pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,13}" title="Usa de 8 a 13 caracteres con al menos una mayúscula, un número y un símbolo." required></label>
+        <label>Confirmar nueva contraseña<input name="confirm_password" type="password" autocomplete="new-password" minlength="8" maxlength="13" pattern="(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,13}" title="Usa de 8 a 13 caracteres con al menos una mayúscula, un número y un símbolo." required></label>
+        <button type="submit">Guardar contraseña</button><button class="quiet-button" id="cancel-password-change" type="button" hidden>Cancelar</button><p class="status" id="password-status" role="status" aria-live="polite"></p>
       </form>
     </section>
     <section id="dashboard" hidden>
@@ -53,6 +61,7 @@
       </section>
       <section class="panel"><h2>Desarrollo más vendido</h2><p class="metric" id="top-seller">Aún no hay ventas registradas.</p></section>
       <section class="panel"><h2>Ventas por desarrollo</h2><div class="table-wrap"><table><thead><tr><th>Desarrollo</th><th>Unidades vendidas</th></tr></thead><tbody id="sales-body"></tbody></table></div></section>
+      <div class="account-tools"><button class="quiet-button" id="show-password-change" type="button">Cambiar contraseña</button></div>
     </section>
   </main>
   <script>
@@ -62,13 +71,21 @@
       const loginForm = document.querySelector('#login-form'), loginStatus = document.querySelector('#login-status');
       const changePanel = document.querySelector('#change-password-panel'), changeForm = document.querySelector('#change-password-form');
       const passwordStatus = document.querySelector('#password-status');
+      const showPasswordChange = document.querySelector('#show-password-change');
+      const cancelPasswordChange = document.querySelector('#cancel-password-change');
+      let mustChangePassword = false, passwordPanelOpen = false;
       const saleForm = document.querySelector('#sale-form'), saleStatus = document.querySelector('#sale-status');
       let csrf = '';
-      const names = {solha:'Solhá',nexum82:'Nexum82',lakuun:'Lakuun',martell:'Martell','marela-life':'Marela Life','hacienda-ticopo-gutierrez':'Hacienda Ticopó Gutiérrez',suno:'SUNO',monarca:'Monarca',anthia:'Anthia','marela-celestun':'Marela Celestún',velamar:'Velamar','lote-telchac':'Lote Telchac','terreno-dzoyola':'Terreno Dzoyolá'};
+      const names = {solha:'Solhá',nexum82:'Nexum82',lakuun:'Lakuun',martell:'Martell','marela-life':'Marela Life','hacienda-ticopo-gutierrez':'Hacienda Ticopó Gutiérrez',suno:'SUNO',monarca:'Monarca',anthia:'Anthia','marela-celestun':'Marela Celestún',velamar:'Velamar','lote-telchac':'Lote Telchac','terreno-dzoyola':'Terreno Dzoyolá','lote-220-ciudad-central-progreso':'Lote 220 · Ciudad Central Progreso'};
       const count = value => Number(value || 0).toLocaleString('es-MX');
       async function request(url, options = {}) {
         const response = await fetch(url, {credentials:'same-origin',cache:'no-store',...options});
-        const data = await response.json(); if (data.csrf) csrf = data.csrf;
+        const responseText = await response.text();
+        let data;
+        try { data = responseText ? JSON.parse(responseText) : {}; }
+        catch { throw new Error(`El servidor devolvió una respuesta no válida (HTTP ${response.status}). Revisa que Apache y PHP estén activos.`); }
+        if (!responseText) throw new Error(`El servidor devolvió una respuesta vacía (HTTP ${response.status}). Revisa que Apache y PHP estén activos.`);
+        if (data.csrf) csrf = data.csrf;
         if (!response.ok) throw new Error(data.error || 'No se pudo completar la solicitud.'); return data;
       }
       function drawRows(target, rows, valueKey, labelKey) {
@@ -77,9 +94,14 @@
         rows.forEach(item => { const tr=document.createElement('tr'), name=document.createElement('td'), value=document.createElement('td'); name.textContent=item[labelKey]; value.textContent=count(item[valueKey]); tr.append(name,value); target.append(tr); });
       }
       async function refresh() {
-        const data=await request(endpoint); loginPanel.hidden=data.authenticated; changePanel.hidden=!data.authenticated || !data.must_change_password;
-        dashboard.hidden=!data.authenticated || data.must_change_password;
-        if (!data.authenticated || data.must_change_password) return;
+        const data=await request(endpoint);
+        mustChangePassword=Boolean(data.must_change_password);
+        loginPanel.hidden=data.authenticated;
+        changePanel.hidden=!data.authenticated || (!mustChangePassword && !passwordPanelOpen);
+        dashboard.hidden=!data.authenticated || mustChangePassword;
+        document.querySelector('#logout-initial').hidden=!mustChangePassword;
+        cancelPasswordChange.hidden=mustChangePassword || !passwordPanelOpen;
+        if (!data.authenticated || mustChangePassword) return;
         document.querySelector('#total-visits').textContent=count(data.total_visits);
         drawRows(document.querySelector('#visits-body'),data.page_visits,'count','name');
         drawRows(document.querySelector('#sales-body'),data.sales,'units','name');
@@ -96,7 +118,9 @@
         if(values.new_password!==values.confirm_password){passwordStatus.textContent='Las contraseñas nuevas no coinciden.';return;}
         try {
           await request(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'change_password',csrf,current_password:values.current_password,new_password:values.new_password})});
-          changeForm.reset(); passwordStatus.style.color='#17633d'; passwordStatus.textContent='Contraseña actualizada.'; await refresh();
+          changeForm.reset(); passwordStatus.style.color='#17633d'; passwordStatus.textContent='Contraseña actualizada.';
+          if (mustChangePassword) passwordPanelOpen=false;
+          await refresh();
         } catch(error) { passwordStatus.style.color=''; passwordStatus.textContent=error.message; }
       });
       document.querySelector('#logout-initial').addEventListener('click',async()=>{
@@ -106,6 +130,13 @@
       document.querySelector('#logout-button').addEventListener('click',async()=>{
         try { await request(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'logout',csrf})}); await refresh(); }
         catch(error) { window.alert(error.message); }
+      });
+      showPasswordChange.addEventListener('click',()=>{
+        passwordPanelOpen=true; passwordStatus.textContent=''; changePanel.hidden=false; cancelPasswordChange.hidden=false;
+        changePanel.scrollIntoView({behavior:'smooth',block:'center'}); changeForm.elements.current_password.focus({preventScroll:true});
+      });
+      cancelPasswordChange.addEventListener('click',async()=>{
+        passwordPanelOpen=false; changeForm.reset(); passwordStatus.textContent=''; await refresh();
       });
       saleForm.addEventListener('submit',async event=>{
         event.preventDefault(); saleStatus.textContent=''; const values=Object.fromEntries(new FormData(saleForm));
@@ -118,7 +149,17 @@
       Object.entries(names).forEach(([value,label])=>{const option=document.createElement('option');option.value=value;option.textContent=label;saleForm.elements.development.append(option);});
       function localDate() { const now=new Date(); now.setMinutes(now.getMinutes()-now.getTimezoneOffset()); return now.toISOString().slice(0,10); }
       saleForm.elements.sold_on.value=localDate();
-      refresh().catch(error=>{loginStatus.textContent=error.message;});
+      async function initialize() {
+        if (new URLSearchParams(window.location.search).get('login') === '1') {
+          const state = await request(endpoint);
+          if (state.authenticated) {
+            await request(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'logout',csrf})});
+          }
+          window.history.replaceState(null,'',window.location.pathname);
+        }
+        await refresh();
+      }
+      initialize().catch(error=>{loginStatus.textContent=error.message;});
       window.setInterval(()=>{if(!dashboard.hidden)refresh().catch(()=>{});},30000);
     })();
   </script>

@@ -1,16 +1,10 @@
 <?php
-header('Content-Type: application/json');
-
-$host = 'localhost';
-$db   = 'u194586287_tierrayuc';
-$user = 'u194586287_tierrayuc';
-$pass = 'Mjsh1965$';
-$charset = 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+header('Content-Type: application/json; charset=utf-8');
+require_once __DIR__ . '/config.php';
 
 try {
-    $pdo = new PDO($dsn, $user, $pass, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    if ($appConfig['dsn'] === '' || $appConfig['dbUser'] === '') throw new RuntimeException('Configura DB_NAME y DB_USER en api/config.local.php o en el entorno del servidor.');
+    $pdo = new PDO($appConfig['dsn'], $appConfig['dbUser'], $appConfig['dbPassword'], [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     
     // Crear tabla si no existe
     $pdo->exec("CREATE TABLE IF NOT EXISTS prospectos (
@@ -76,9 +70,10 @@ try {
         ];
         echo json_encode($output);
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
+    error_log('Prospect save error: ' . $e->getMessage());
     http_response_code(500);
-    echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+    echo json_encode(['status' => 'error', 'message' => 'No se pudo guardar la solicitud. Revisa la configuración de PHP y MySQL.'], JSON_UNESCAPED_UNICODE);
 }
 ?>
 

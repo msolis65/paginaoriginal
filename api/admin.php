@@ -10,7 +10,7 @@ const ADMIN_PAGES = [
     'lote-telchac' => 'Lote Telchac', 'marela-celestun' => 'Marela Celestún',
     'marela-life' => 'Marela Life', 'martell' => 'Martell', 'monarca' => 'Monarca',
     'nexum82' => 'Nexum82', 'solha' => 'Solhá', 'suno' => 'SUNO',
-    'terreno-dzoyola' => 'Terreno Dzoyolá', 'velamar' => 'Velamar',
+    'terreno-dzoyola' => 'Terreno Dzoyolá', 'lote-220-ciudad-central-progreso' => 'Lote 220 · Ciudad Central Progreso', 'velamar' => 'Velamar',
 ];
 const ADMIN_DEVELOPMENTS = [
     'solha' => 'Solhá', 'nexum82' => 'Nexum82', 'lakuun' => 'Lakuun', 'martell' => 'Martell',
@@ -18,7 +18,10 @@ const ADMIN_DEVELOPMENTS = [
     'suno' => 'SUNO', 'monarca' => 'Monarca', 'anthia' => 'Anthia',
     'marela-celestun' => 'Marela Celestún', 'velamar' => 'Velamar',
     'lote-telchac' => 'Lote Telchac', 'terreno-dzoyola' => 'Terreno Dzoyolá',
+    'lote-220-ciudad-central-progreso' => 'Lote 220 · Ciudad Central Progreso',
 ];
+const ADMIN_AUTH_VERSION = 4;
+require_once __DIR__ . '/config.php';
 
 function adminRespond(int $status, array $payload): void {
     http_response_code($status);
@@ -26,10 +29,12 @@ function adminRespond(int $status, array $payload): void {
     exit;
 }
 function adminPdo(): PDO {
-    $host = 'localhost';
-    $database = 'u194586287_tierrayuc';
-    $user = 'u194586287_tierrayuc';
-    $password = 'Mjsh1965$';
+    global $appConfig;
+    $host = $appConfig['dbHost'];
+    $database = $appConfig['dbName'];
+    $user = $appConfig['dbUser'];
+    $password = $appConfig['dbPassword'];
+    if ($database === '' || $user === '') throw new RuntimeException('Configura DB_NAME y DB_USER en api/config.local.php o en el entorno del servidor.');
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -92,6 +97,16 @@ try {
     ini_set('session.use_trans_sid', '0');
     session_set_cookie_params(['lifetime'=>0, 'path'=>'/', 'secure'=>adminIsHttps(), 'httponly'=>true, 'samesite'=>'Strict']);
     if (!session_start()) adminRespond(500, ['error'=>'No se pudo iniciar la sesión.']);
+    if ((int)($_SESSION['admin_auth_version'] ?? 0) !== ADMIN_AUTH_VERSION) {
+        unset(
+            $_SESSION['admin_id'],
+            $_SESSION['admin_must_change_password'],
+            $_SESSION['admin_login_attempts'],
+            $_SESSION['admin_login_last_attempt']
+        );
+        $_SESSION['admin_auth_version'] = ADMIN_AUTH_VERSION;
+        session_regenerate_id(true);
+    }
     $pdo = adminPdo();
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
     if ($method === 'GET') {
@@ -124,7 +139,7 @@ try {
     requireAdminCsrf($input);
     $action = (string)($input['action'] ?? '');
     if ($action === 'login') {
-        $host = (string)($_SERVER['HTTP_HOST'] ?? '');
+        $host = strtolower((string)parse_url('http://' . (string)($_SERVER['HTTP_HOST'] ?? ''), PHP_URL_HOST));
         if (!adminIsHttps() && !in_array($host, ['localhost', '127.0.0.1'], true)) adminRespond(503, ['error'=>'El acceso de administración requiere HTTPS.']);
         $attempts = (int)($_SESSION['admin_login_attempts'] ?? 0);
         $last = (int)($_SESSION['admin_login_last_attempt'] ?? 0);
@@ -171,7 +186,9 @@ try {
         $stmt->execute([(int)$_SESSION['admin_id']]);
         $currentHash = $stmt->fetchColumn();
         if (!$currentHash || !password_verify((string)($input['current_password'] ?? ''), (string)$currentHash)) adminRespond(400, ['error'=>'La contraseña actual no es correcta.']);
-        if (strlen($newPassword) < 12) adminRespond(400, ['error'=>'La nueva contraseña debe tener al menos 12 caracteres.']);
+        if (preg_match('/\A(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9\s]).{8,13}\z/D', $newPassword) !== 1) {
+            adminRespond(400, ['error'=>'Usa de 8 a 13 caracteres con al menos una mayúscula, un número y un símbolo.']);
+        }
         $stmt = $pdo->prepare('UPDATE site_admins SET password_hash = ?, must_change_password = 0 WHERE id = ?');
         $stmt->execute([password_hash($newPassword, PASSWORD_DEFAULT), (int)$_SESSION['admin_id']]);
         $_SESSION['admin_must_change_password'] = false;
