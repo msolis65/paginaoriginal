@@ -23,6 +23,12 @@
     .danger-button { background:#9b302b; } .danger-button:hover { background:#7f241f; }
     .visit-reset-tools { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
     .visit-reset-tools .muted { margin:0; font-size:.9rem; }
+    .visit-chart { display:grid; gap:12px; margin:22px 0 28px; }
+    .visit-chart-row { display:grid; grid-template-columns:minmax(120px, 200px) minmax(80px, 1fr) 72px; align-items:center; gap:14px; }
+    .visit-chart-label { overflow-wrap:anywhere; font-size:.94rem; }
+    .visit-chart-track { height:16px; overflow:hidden; border-radius:999px; background:#edf2ef; }
+    .visit-chart-bar { display:block; height:100%; min-width:0; border-radius:inherit; background:linear-gradient(90deg, #39786d, var(--green)); transition:width .35s ease; }
+    .visit-chart-value { text-align:right; font-weight:700; font-variant-numeric:tabular-nums; color:var(--green); }
     .account-tools { position:fixed; right:24px; bottom:18px; z-index:5; display:flex; justify-content:flex-end; padding:6px; border:1px solid var(--line); border-radius:10px; background:rgba(247,248,245,.96); box-shadow:0 4px 18px #17262518; }
     .quiet-button { padding:6px 10px; color:#687472; background:transparent; font-size:.82rem; font-weight:400; text-decoration:underline; text-underline-offset:3px; }
     @media(max-width:600px) { .account-tools { right:12px; bottom:12px; } }
@@ -30,6 +36,7 @@
     [hidden] { display:none !important; } .table-wrap { overflow-x:auto; } table { width:100%; border-collapse:collapse; text-align:left; }
     th,td { padding:12px 10px; border-bottom:1px solid var(--line); } th:last-child,td:last-child { text-align:right; font-variant-numeric:tabular-nums; }
     @media(max-width:600px) { header { align-items:flex-start; } .panel { padding:18px; } }
+    @media(max-width:560px) { .visit-chart-row { grid-template-columns:minmax(90px, 125px) minmax(50px, 1fr) 54px; gap:8px; } .visit-chart-label,.visit-chart-value { font-size:.82rem; } }
   </style>
 </head>
 <body>
@@ -54,7 +61,7 @@
     </section>
     <section id="dashboard" hidden>
       <div class="panel topline"><div><div class="muted">Visitas totales</div><div class="metric" id="total-visits">0</div></div><button class="secondary" id="logout-button" type="button">Cerrar sesión</button></div>
-      <section class="panel"><h2>Visitas por página</h2><p class="muted">Se actualiza automáticamente cada 30 segundos.</p><div class="table-wrap"><table><thead><tr><th>Página</th><th>Visitas</th></tr></thead><tbody id="visits-body"></tbody></table></div><div class="visit-reset-tools"><p class="muted">Reinicia los contadores de visitas de todas las páginas. No modifica solicitudes ni ventas.</p><button class="danger-button" id="reset-visits-button" type="button">Borrar todas las visitas</button></div><p class="status" id="visits-status" role="status" aria-live="polite"></p></section>
+      <section class="panel"><h2>Visitas por página</h2><p class="muted">Reporte gráfico de las visitas registradas en todo el sitio. Se actualiza automáticamente cada 30 segundos.</p><div id="visits-chart" class="visit-chart" role="list" aria-label="Gráfica de visitas del sitio por página"></div><div class="table-wrap"><table><thead><tr><th>Página</th><th>Visitas</th></tr></thead><tbody id="visits-body"></tbody></table></div><div class="visit-reset-tools"><p class="muted">Reinicia los contadores de visitas de todas las páginas. No modifica solicitudes ni ventas.</p><button class="danger-button" id="reset-visits-button" type="button">Borrar todas las visitas</button></div><p class="status" id="visits-status" role="status" aria-live="polite"></p></section>
       <section class="panel"><h2>Registrar venta cerrada</h2><p class="muted">Registra unidades vendidas para consultar cuál desarrollo lleva más ventas.</p>
         <form id="sale-form"><label>Desarrollo<select name="development" required></select></label>
           <label>Unidades vendidas<input name="units" type="number" min="1" max="100000" value="1" required></label>
@@ -98,6 +105,19 @@
         if (!rows.length) { const tr=document.createElement('tr'), td=document.createElement('td'); td.colSpan=2; td.textContent='Aún no hay registros.'; tr.append(td); target.append(tr); return; }
         rows.forEach(item => { const tr=document.createElement('tr'), name=document.createElement('td'), value=document.createElement('td'); name.textContent=item[labelKey]; value.textContent=count(item[valueKey]); tr.append(name,value); target.append(tr); });
       }
+      function drawVisitsChart(rows) {
+        const chart=document.querySelector('#visits-chart'); chart.replaceChildren();
+        const maximum=Math.max(0,...rows.map(item=>Number(item.count)||0));
+        rows.forEach(item=>{
+          const value=Number(item.count)||0, row=document.createElement('div'), label=document.createElement('span'), track=document.createElement('span'), bar=document.createElement('span'), total=document.createElement('span');
+          row.className='visit-chart-row'; row.setAttribute('role','listitem');
+          label.className='visit-chart-label'; label.textContent=item.name;
+          track.className='visit-chart-track'; track.setAttribute('aria-hidden','true');
+          bar.className='visit-chart-bar'; bar.style.width=maximum ? `${(value/maximum)*100}%` : '0%'; track.append(bar);
+          total.className='visit-chart-value'; total.textContent=count(value);
+          row.append(label,track,total); chart.append(row);
+        });
+      }
       async function refresh() {
         const data=await request(endpoint);
         mustChangePassword=Boolean(data.must_change_password);
@@ -108,6 +128,7 @@
         cancelPasswordChange.hidden=mustChangePassword || !passwordPanelOpen;
         if (!data.authenticated || mustChangePassword) return;
         document.querySelector('#total-visits').textContent=count(data.total_visits);
+        drawVisitsChart(data.page_visits || []);
         drawRows(document.querySelector('#visits-body'),data.page_visits,'count','name');
         drawRows(document.querySelector('#sales-body'),data.sales,'units','name');
         document.querySelector('#top-seller').textContent=data.sales.length ? `${data.sales[0].name}: ${count(data.sales[0].units)} unidades` : 'Aún no hay ventas registradas.';
