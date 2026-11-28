@@ -1866,12 +1866,31 @@
     const WHATSAPP_NUMBER = "5219991797273";
     // Abre el submenú Productos con clic, útil en móviles y accesible por teclado.
     const dropdownParents = document.querySelectorAll(".has-dropdown");
+    const closeDropdowns = (except = null) => {
+      dropdownParents.forEach((parent) => {
+        if (parent === except) return;
+        parent.classList.remove("is-open");
+        parent.querySelector(".products-toggle")?.setAttribute("aria-expanded", "false");
+      });
+    };
+
     dropdownParents.forEach((parent) => {
       const button = parent.querySelector(".products-toggle");
       button.addEventListener("click", () => {
-        const isOpen = parent.classList.toggle("is-open");
-        button.setAttribute("aria-expanded", String(isOpen));
+        const wasOpen = parent.classList.contains("is-open");
+        closeDropdowns();
+        if (!wasOpen) {
+          parent.classList.add("is-open");
+          button.setAttribute("aria-expanded", "true");
+        }
       });
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".has-dropdown")) closeDropdowns();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeDropdowns();
     });
 
     // Menú móvil: alterna su visibilidad y actualiza el estado accesible.
